@@ -49,3 +49,13 @@ void L298N::output() {
     delay(dur);
     analogWrite(enP, 0);
 }
+
+void L298N::reverse() {
+    if (Dir == dir::CW) {
+        Dir = dir::CCW;
+    } else {
+        Dir = dir::CW;
+    }
+
+    output();
+}

@@ -17,4 +17,5 @@ void loop() {
   motor1.output();
 
 
+  motor1.reverse();
 }
