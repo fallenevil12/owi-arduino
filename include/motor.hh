@@ -1,3 +1,6 @@
+#ifndef MOTOR_HH
+#define MOTOR_HH
+
 #include <stdint.h>
 
 /**
@@ -88,4 +91,7 @@ private:
 
     /** duration of motion */
     unsigned long dur;
-};
+
+}; //class motor
+
+#endif //MOTOR_HH

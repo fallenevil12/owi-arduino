@@ -1,21 +1,24 @@
 #include <Arduino.h>
 #include "motor.hh"
+#include "SerialHelper.hh"
 
+/** put your setup code here, to run once */
 void setup() {
-  // put your setup code here, to run once:
-
+    Serial.begin(9600);
 }
 
+/** put your main code here, to run repeatedly */
 void loop() {
-  // put your main code here, to run repeatedly:
+    static L298N joint[5] = { L298N(13, 22, 24),
+                              L298N(12, 26, 28),
+                              L298N(11, 30, 32),
+                              L298N(10, 34, 36),
+                              L298N(9, 36, 38)  };
 
-  static L298N motor1(13, 22, 24);
-  static L298N motor2(12, 26, 28);
+    oLoopCtrl userInput = getCtrInput();
+    joint[userInput.i].update(userInput.direction, userInput.pwm);
+    joint[userInput.i].setDuration(userInput.duration);
+    joint[userInput.i].output();
 
-  motor1.update(motor::dir::CW, 255);
-  motor1.setDuration(1000);
-  motor1.output();
-
-
-  motor1.reverse();
 }
+
