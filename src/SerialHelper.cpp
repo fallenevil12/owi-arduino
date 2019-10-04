@@ -13,12 +13,17 @@ oLoopCtrl getCtrInput() {
     }
     recv.i = number;
 
-    number = -1;
-    while (number != 0 && number != 1) {
-        Serial.print("\nEnter direction (0/1)\n");
-        number = getInt();
+    char dir = ' ';
+    while (dir != 'r' && dir !='l') {
+        Serial.print("\nEnter direction (l/r)\n");
+        while(!Serial.available());
+        dir = Serial.read();
     }
-    recv.direction = static_cast<motor::dir>(number);
+    if (dir == 'r') {
+        recv.direction = motor::dir::CW;
+    } else {
+        recv.direction = motor::dir::CCW;
+    }
 
     number = -1;
     while (number < 0 || number > 255) {

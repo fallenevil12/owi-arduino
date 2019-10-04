@@ -9,11 +9,11 @@ void setup() {
 
 /** put your main code here, to run repeatedly */
 void loop() {
-    static L298N joint[5] = { L298N(13, 22, 24),
-                              L298N(12, 26, 28),
-                              L298N(11, 30, 32),
-                              L298N(10, 34, 36),
-                              L298N(9, 36, 38)  };
+    static L298N joint[5] = { L298N(6, 13, 12),
+                              L298N(3, 26, 28),
+                              L298N(5, 11, 10),
+                              L298N(4, 22, 24),
+                              L298N(2, 30, 32)  };
 
     oLoopCtrl userInput = getCtrInput();
     joint[userInput.i].update(userInput.direction, userInput.pwm);
