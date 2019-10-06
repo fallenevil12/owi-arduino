@@ -8,7 +8,7 @@
  */
 struct oLoopCtrl {
     unsigned i;
-    motor::dir direction;
+    MOTOR::dir direction;
     unsigned pwm;
     unsigned long duration;
 };
@@ -17,6 +17,11 @@ struct oLoopCtrl {
  * get the parametters for manual control of each joints
  */
 oLoopCtrl getCtrInput();
+
+/**
+ * choose joint to rotate 1 step
+ */
+oLoopCtrl manualStep();
 
 /**
  * get an interger from Serial stream

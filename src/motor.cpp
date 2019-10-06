@@ -1,31 +1,31 @@
 #include "Arduino.h"
 #include "motor.hh"
 
-motor::motor() {
+MOTOR::MOTOR() {
 
 }
 
-void motor::update(dir direction, uint8_t power) {
+void MOTOR::update(dir direction, uint8_t power) {
     setDirection(direction);
     setPower(power);
 }
 
-void motor::setDirection(dir direction) {
+void MOTOR::setDirection(dir direction) {
     Dir = direction;
 }
 
-void motor::setPower(uint8_t power) {
+void MOTOR::setPower(uint8_t power) {
     pwm = power;
 }
 
-L298N::L298N(unsigned enPin, unsigned in1Pin, unsigned in2Pin) :
+L298N::L298N(uint8_t enPin, uint8_t in1Pin, uint8_t in2Pin) :
              enP(enPin), in1P(in1Pin), in2P(in2Pin), dur(0) {
     pinMode(enP, OUTPUT);
     pinMode(in1P, OUTPUT);
     pinMode(in2P, OUTPUT);
 }
 
-void L298N::setDuration(unsigned long duration) {
+void L298N::setDuration(long duration) {
     dur = duration;
 }
 
@@ -46,8 +46,11 @@ void L298N::output() {
     }
 
     analogWrite(enP, pwm);
-    delay(dur);
-    analogWrite(enP, 0);
+
+    if (dur != -1) {
+       delay(dur);
+       analogWrite(enP, 0);
+    }
 }
 
 void L298N::reverse() {

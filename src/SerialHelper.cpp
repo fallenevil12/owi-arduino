@@ -19,11 +19,8 @@ oLoopCtrl getCtrInput() {
         while(!Serial.available());
         dir = Serial.read();
     }
-    if (dir == 'r') {
-        recv.direction = motor::dir::CW;
-    } else {
-        recv.direction = motor::dir::CCW;
-    }
+    (dir == 'r') ? (recv.direction = MOTOR::dir::CW) : 
+                   (recv.direction = MOTOR::dir::CCW);
 
     number = -1;
     while (number < 0 || number > 255) {
@@ -38,6 +35,22 @@ oLoopCtrl getCtrInput() {
         number = getInt();
     }
     recv.duration = number;
+
+    return recv;
+}
+
+oLoopCtrl manualStep() {
+    oLoopCtrl recv = {0, MOTOR::dir::CW, 100, 200};
+
+    int number = -1;
+    while (number < 0 || number > 9) {
+        Serial.print("\nEnter joint index (0,1,2,3,4 for CW... 5,6,7,8,9 for CCW\n");
+        number = getInt();
+    }
+    recv.i = number % 5;
+    (number < 4) ? (recv.direction = MOTOR::dir::CW) :
+                   (recv.direction = MOTOR::dir::CCW);
+
 
     return recv;
 }
