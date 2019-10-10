@@ -48,11 +48,11 @@ bool JOINT::driveTo(double target) {
 bool JOINT::test_step_pos() {
     angle = pot.getDegreeVal();
     driver.setDirection(MOTOR::dir::CW);
-    driver.setDuration(200);
+    driver.setDuration(500);
     driver.setPower(100);
     driver.output();
 
-    if (pot.getDegreeVal() > angle) return true;
+    if (pot.getDegreeVal() - angle > 10.0) return true;
     else return false;
 }
 
@@ -63,7 +63,7 @@ bool JOINT::test_step_neg() {
     driver.setPower(100);
     driver.output();
 
-    if (pot.getDegreeVal() < angle) return true;
+    if (pot.getDegreeVal() - angle < -10.0) return true;
     else return false;
 }
 
@@ -76,7 +76,7 @@ void JOINT::pid_test() {
         Serial.println(buffer);
         while(!Serial.available());
         target = getInt();
-    } while (target < 30 || target > 110);
+    } while (target < safemin || target > safemax);
 
     while (!driveTo(target)) {
         delay(10);
@@ -95,10 +95,12 @@ void init_step_test(JOINT *joint) {
             sprintf(buffer, "Joint[%d] tested failed in positive direction", i);
             Serial.println(buffer);
         }
+        delay(500);
         if (!joint[i].test_step_neg()) {
             sprintf(buffer, "Joint[%d] tested failed in negative direction", i);
             Serial.println(buffer);
         }
+        delay(500);
     }
 }
 
