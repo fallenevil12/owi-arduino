@@ -43,6 +43,29 @@ public:
      */
     bool driveTo(double target);
 
+    /**
+     * for initial testing of correct wiring of motor and sensor
+     * do a small joint movement to see if it is moving in the positive direction of sensor
+     * @return true if the movement cause positive change in sensor reading
+     */
+    bool test_step_pos();
+
+    /**
+     * for initial testing of correct wiring or motor and sensor
+     * do a small joint movement to see if it is moving in the negative direction of sensor
+     * @return true if the movement cause negative change in sensor reading
+     */
+    bool test_step_neg();
+
+    /**
+     * Test pid for a joint
+     */
+    void pid_test();
+
+    /** 
+     * get joint angle value in degree, according to D-H convention
+     */
+    double getAngle();
 
 private:
     /* motor driver */
@@ -57,7 +80,16 @@ private:
     double safemin;
     /* operating angle upper bound */
     double safemax;
+    /* corresponding link angle */
+    double angle;
 
 }; //class JOINT
+
+/** 
+ * Initial stepping to test if the rotation directions are as expected
+ * make sure joints has enough room to move about 10degree, as this is open loop and has no safety check
+ */
+void init_step_test(JOINT *joint);
+
 
 #endif //OWIJOINT_HH

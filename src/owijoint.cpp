@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "owijoint.hh"
+#include "SerialHelper.hh"
 
 #define ANALOG_BITS 10
 #define ANALOG_RANGE 5.0
@@ -16,7 +17,7 @@ JOINT::JOINT(CONFIG config):
     safemax(config.degMax) {}
 
 bool JOINT::driveTo(double target) {
-    double angle = pot.getDegreeVal() - offset;
+    getAngle();
 
     if (angle < safemin || angle > safemax || target < safemin || target > safemax) {
         driver.setDuration(-1);
@@ -24,14 +25,6 @@ bool JOINT::driveTo(double target) {
         driver.output();
         Serial.println("Critical: Joint angle or target out of safety bound. Operation halted.");
         while(1);
-    }
-
-    if (fabs(target - angle) < ACCURACY) {
-        driver.setDuration(-1);
-        driver.setPower(0);
-        driver.output();
-        pid.reset();
-        return true;
     }
 
     double k = pid.pidCal(angle, target);
@@ -47,6 +40,65 @@ bool JOINT::driveTo(double target) {
     driver.output();
     
     Serial.println(angle);
-    return false;
 
+    if (k == 0.0) return true; // expecting 0.0 value pidCal would return if reached setpoint
+    else return false;
 }
+
+bool JOINT::test_step_pos() {
+    angle = pot.getDegreeVal();
+    driver.setDirection(MOTOR::dir::CW);
+    driver.setDuration(200);
+    driver.setPower(100);
+    driver.output();
+
+    if (pot.getDegreeVal() > angle) return true;
+    else return false;
+}
+
+bool JOINT::test_step_neg() {
+    angle = pot.getDegreeVal();
+    driver.setDirection(MOTOR::dir::CCW);
+    driver.setDuration(200);
+    driver.setPower(100);
+    driver.output();
+
+    if (pot.getDegreeVal() < angle) return true;
+    else return false;
+}
+
+void JOINT::pid_test() {
+    int target = 0;
+    char buffer[100];
+    sprintf(buffer, "Enter target angle degree (%d to %d)", static_cast<int>(safemin), static_cast<int>(safemax));
+
+    do {
+        Serial.println(buffer);
+        while(!Serial.available());
+        target = getInt();
+    } while (target < 30 || target > 110);
+
+    while (!driveTo(target)) {
+        delay(10);
+    }
+}
+
+double JOINT::getAngle() {
+    angle = pot.getDegreeVal() - offset;
+    return angle;
+}
+
+void init_step_test(JOINT *joint) {
+    char buffer[100];
+    for (int i = 0; i < 5; i++) {
+        if (!joint[i].test_step_pos()) {
+            sprintf(buffer, "Joint[%d] tested failed in positive direction", i);
+            Serial.println(buffer);
+        }
+        if (!joint[i].test_step_neg()) {
+            sprintf(buffer, "Joint[%d] tested failed in negative direction", i);
+            Serial.println(buffer);
+        }
+    }
+}
+

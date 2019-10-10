@@ -19,15 +19,19 @@ struct oLoopCtrl {
 oLoopCtrl getCtrInput();
 
 /**
- * choose joint to rotate 1 step
- */
-oLoopCtrl manualStep();
-
-/**
  * get an interger from Serial stream
  * the method used is not safe, betting on correct data format
  * only used temporarily
  */
 int getInt();
+
+/**
+ * display a menu passed in as String, and get user's choice
+ * index start at 0 to number of choice - 1
+ * @param menu string
+ * @param numOfChoice number of choices
+ * @return user's input
+ */
+int displayMenu(String menu, int numOfChoice);
 
 #endif //SERIALHELPER_HH

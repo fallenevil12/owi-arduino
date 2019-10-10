@@ -22,6 +22,12 @@ double PID::pidCal(double _val, double _refVal) {
     prevErr = err;
     err = val - refVal;
 
+    // return 0 if set point has been reached within accuracy of 1 degree
+    if (fabs(err) < 1.0 && fabs(err-prevErr) < 1.0 ) {
+        reset();
+        return 0.0;
+    }
+
     accmlErr = accmlErr + err;
     if (ki*accmlErr > 0.5) accmlErr = 0.5/ki; //anti windup
 

@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "SerialHelper.hh"
 
+
 oLoopCtrl getCtrInput() {
     oLoopCtrl recv = {};
     
@@ -39,21 +40,6 @@ oLoopCtrl getCtrInput() {
     return recv;
 }
 
-oLoopCtrl manualStep() {
-    oLoopCtrl recv = {0, MOTOR::dir::CW, 100, 200};
-
-    int number = -1;
-    while (number < 0 || number > 9) {
-        Serial.print("\nEnter joint index (0,1,2,3,4 for CW... 5,6,7,8,9 for CCW\n");
-        number = getInt();
-    }
-    recv.i = number % 5;
-    (number < 4) ? (recv.direction = MOTOR::dir::CW) :
-                   (recv.direction = MOTOR::dir::CCW);
-
-
-    return recv;
-}
 
 int getInt() {
     char buffer[32];
@@ -66,3 +52,12 @@ int getInt() {
     return number;
 }
 
+int displayMenu(String menu, int numOfChoices) {
+    Serial.print(menu);
+    int choice = -1;
+    do {
+        while(!Serial.available());
+        choice = getInt();
+    } while (choice < 0 || choice > numOfChoices - 1);
+    return choice;
+}
