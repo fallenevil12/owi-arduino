@@ -1,9 +1,8 @@
 #include <Arduino.h>
-#include "motor.hh"
-#include "rotsensor.hh"
 #include "SerialHelper.hh"
+#include "motor.hh"
 #include "owijoint.hh"
-#include "pid.hh"
+#include "jointconfig.hh"
 
 /** put your setup code here, to run once */
 void setup() {
@@ -12,18 +11,13 @@ void setup() {
 
 /** put your main code here, to run repeatedly */
 void loop() {
-    JOINT::CONFIG joint1conf {
-        .enPin = 3,
-        .dirPin1 = 26,
-        .dirPin2 = 28,
-        .potPin = A0,
-        .degOffset = 40.0,
-        .degMin = 20.0,
-        .degMax = 120,
-        .pid = PID(0.02, 0.001, 0.01)
-    };
 
-    JOINT joint1(joint1conf);
+
+    static JOINT joint[5] = { JOINT(joint0conf),
+                              JOINT(joint1conf),
+                              JOINT(joint2conf),
+                              JOINT(joint3conf),
+                              JOINT(joint4conf) };
 
     int target = 0;
     do {
@@ -31,19 +25,22 @@ void loop() {
         while(!Serial.available());
         target = getInt();
     } while (target < 30 || target > 110);
-    while (!joint1.driveTo(target)) {
+    while (!joint[1].driveTo(target)) {
         delay(10);
     }
 }
 
-// void motor_dir_test() {
-//     static JOINT joint[5] = { JOINT(6, 13, 12),
-//                               JOINT(3, 26, 28),
-//                               JOINT(4, 22, 24),
-//                               JOINT(5, 26, 28),
-//     Serial.println(pot[0].getDegreeVal());
+/** 
+ * Manually stepping to test if the rotation directions are as expected
+ * make sure joints has enough room to move about 10degree, as this is open loop and has no safety check
+ */
+// void rotate_dir_test() {
+//     static L298N motor[5] = { L298N(join0conf.enPin, joint0conf.dirPin1, joint0conf.dirPin2),
+//                               L298N(join1conf.enPin, joint1conf.dirPin1, joint1conf.dirPin2),
+//                               L298N(join2conf.enPin, joint2conf.dirPin1, joint2conf.dirPin2),
+//                               L298N(join3conf.enPin, joint3conf.dirPin1, joint3conf.dirPin2),
+//                               L298N(join4conf.enPin, joint4conf.dirPin1, joint4conf.dirPin2) }
 
-//     Serial.println(pot[1].getDegreeVal());
 //     oLoopCtrl userInput = manualStep();
 //     joint[userInput.i].update(userInput.direction, userInput.pwm);
 //     joint[userInput.i].setDuration(userInput.duration);
