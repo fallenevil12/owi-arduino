@@ -24,9 +24,13 @@ protected:
     trajectory_msgs::JointTrajectoryPoint cmd;
     ros::Publisher msgPub;
     ros::Publisher statePub;
-    ros::Subscriber<trajectory_msgs::JointTrajectoryPoint> cmdSub;
+    //ros::Subscriber<trajectory_msgs::JointTrajectoryPoint> cmdSub;
 }; //class ROSSERIAL
 
+/**
+ * this class wrap around a chosen arduino Serial port#
+ * and provides helpers for communication
+ */
 class ADNOSERIAL {
 public:
     /**
@@ -62,6 +66,7 @@ public:
      */
     int displayMenu(String menu, int numOfChoice);
 
+    /** alias for the Arduino serial port used */
     HardwareSerial &Serial;
 private:
     

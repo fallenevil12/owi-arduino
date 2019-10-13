@@ -8,12 +8,12 @@ ros::NodeHandle ROSSERIAL::node;
 
 ROSSERIAL::ROSSERIAL(void(*cmdCallback)(const trajectory_msgs::JointTrajectoryPoint&)):
     msgPub("message", &msg),
-    statePub("joint_state", &state),
-    cmdSub("command", cmdCallback) {
+    statePub("joint_state", &state) /*,
+    cmdSub("command", cmdCallback) */ {
     node.initNode();
     node.advertise(msgPub);
     node.advertise(statePub); 
-    node.subscribe(cmdSub);
+    //node.subscribe(cmdSub);
 }
 
 void ROSSERIAL::print(const char *message) {
