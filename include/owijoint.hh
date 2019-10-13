@@ -4,6 +4,9 @@
 #include "motor.hh"
 #include "rotsensor.hh"
 #include "pid.hh"
+#include "SerialHelper.hh"
+
+extern ADNOSERIAL adnoserial;
 
 /** Represent a joint (and coresponding link) on OWI robot with control methods */
 class JOINT {

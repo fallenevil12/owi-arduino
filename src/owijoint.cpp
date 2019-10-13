@@ -23,7 +23,7 @@ bool JOINT::driveTo(float target) {
         driver.setDuration(-1);
         driver.setPower(0);
         driver.output();
-        Serial.println("Critical: Joint angle or target out of safety bound. Operation halted.");
+        adnoserial.Serial.println("Critical: Joint angle or target out of safety bound. Operation halted.");
         while(1);
     }
 
@@ -73,9 +73,8 @@ void JOINT::pid_test() {
     sprintf(buffer, "Enter target angle degree (%d to %d)", static_cast<int>(safemin), static_cast<int>(safemax));
 
     do {
-        Serial.println(buffer);
-        while(!Serial.available());
-        target = getInt();
+        adnoserial.Serial.println(buffer);
+        target = adnoserial.getInt();
     } while (target < safemin || target > safemax);
 
     while (!driveTo(target)) {
@@ -93,12 +92,12 @@ void init_step_test(JOINT *joint) {
     for (int i = 0; i < 5; i++) {
         if (!joint[i].test_step_pos()) {
             sprintf(buffer, "Joint[%d] tested failed in positive direction", i);
-            Serial.println(buffer);
+            adnoserial.Serial.println(buffer);
         }
         delay(500);
         if (!joint[i].test_step_neg()) {
             sprintf(buffer, "Joint[%d] tested failed in negative direction", i);
-            Serial.println(buffer);
+            adnoserial.Serial.println(buffer);
         }
         delay(500);
     }
