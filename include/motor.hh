@@ -49,13 +49,13 @@ protected:
     uint8_t pwm{0};
 
     /** rotational position */
-    double pos{0.0};
+    float pos{0.0};
 
     /** home position */
-    const double homePos{0.0};
+    const float homePos{0.0};
 
     /** target position */
-    double targetPos{0.0};
+    float targetPos{0.0};
 };
 
 /**

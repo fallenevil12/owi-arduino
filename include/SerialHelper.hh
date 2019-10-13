@@ -1,6 +1,9 @@
 #ifndef SERIALHELPER_HH
 #define SERIALHELPER_HH
 
+#include <ros.h>
+#include <std_msgs/String.h>
+#include <sensor_msgs/JointState.h>
 #include "motor.hh"
 
 /**
@@ -33,5 +36,19 @@ int getInt();
  * @return user's input
  */
 int displayMenu(String menu, int numOfChoice);
+
+class ROSSERIAL {
+public:
+    ROSSERIAL();
+    void print(const char *message);
+    void sendState(float *jointAngle, int numOfJoint);
+
+protected:
+    static ros::NodeHandle node;
+    std_msgs::String msg;
+    sensor_msgs::JointState state;
+    ros::Publisher msgPub;
+    ros::Publisher statePub;
+};
 
 #endif //SERIALHELPER_HH

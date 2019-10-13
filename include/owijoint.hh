@@ -19,11 +19,11 @@ public:
         /** analog in pin */
         uint8_t potPin;
         /** angle of defined 0 degree (D-H convention) relative to raw angle */
-        double degOffset;
+        float degOffset;
         /** safe min angle */
-        double degMin;
+        float degMin;
         /** safe max anle */
-        double degMax;
+        float degMax;
         /** pid parametters */
         PID pid;
     };
@@ -41,7 +41,7 @@ public:
      * @param target angle value in degree
      * @return true once reached target (within defined accuracy)
      */
-    bool driveTo(double target);
+    bool driveTo(float target);
 
     /**
      * for initial testing of correct wiring of motor and sensor
@@ -65,7 +65,7 @@ public:
     /** 
      * get joint angle value in degree, according to D-H convention
      */
-    double getAngle();
+    float getAngle();
 
 private:
     /* motor driver */
@@ -75,13 +75,13 @@ private:
     /* pid */
     PID pid;
     /* position of 0 degree (D-H convention) relative to raw angle  */
-    double offset;
+    float offset;
     /* operating angle lower bound */
-    double safemin;
+    float safemin;
     /* operating angle upper bound */
-    double safemax;
+    float safemax;
     /* corresponding link angle */
-    double angle;
+    float angle;
 
 }; //class JOINT
 

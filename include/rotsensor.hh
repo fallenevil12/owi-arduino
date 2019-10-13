@@ -7,11 +7,11 @@ class ROTENCODER {
 public:
     virtual int getRawVal() = 0;
 
-    virtual double getDegreeVal();
+    virtual float getDegreeVal();
 
 protected:
     int rawVal{0};
-    double degree{0.0};
+    float degree{0.0};
 
 }; //class ROTENCODER
 
@@ -24,21 +24,21 @@ public:
      * @param range analog read voltage range
      * @param scale conversion factor to rotation degree
      */
-    POTENTIO(uint8_t pin, unsigned bits, double range, double scale);
+    POTENTIO(uint8_t pin, unsigned bits, float range, float scale);
 
     int getRawVal() override;
 
-    double getVoltVal();
+    float getVoltVal();
 
-    double getDegreeVal() override;
+    float getDegreeVal() override;
 
-    void setScale(double scale);
+    void setScale(float scale);
 
 private:
     const uint8_t pin;
-    const double res;
-    double volt{0.0};
-    double scale;
+    const float res;
+    float volt{0.0};
+    float scale;
 
 }; //class POTENTIO
 

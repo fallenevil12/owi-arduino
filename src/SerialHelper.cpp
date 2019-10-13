@@ -5,34 +5,34 @@
 oLoopCtrl getCtrInput() {
     oLoopCtrl recv = {};
     
-    Serial.print("!!!Data has to be sent with endline character!!!\n");
+    Serial1.print("!!!Data has to be sent with endline character!!!\n");
 
     int number = -1;
     while (number < 0 || number > 4) {
-        Serial.print("\nEnter joint index\n");
+        Serial1.print("\nEnter joint index\n");
         number = getInt();
     }
     recv.i = number;
 
     char dir = ' ';
     while (dir != 'r' && dir !='l') {
-        Serial.print("\nEnter direction (l/r)\n");
-        while(!Serial.available());
-        dir = Serial.read();
+        Serial1.print("\nEnter direction (l/r)\n");
+        while(!Serial1.available());
+        dir = Serial1.read();
     }
     (dir == 'r') ? (recv.direction = MOTOR::dir::CW) : 
                    (recv.direction = MOTOR::dir::CCW);
 
     number = -1;
     while (number < 0 || number > 255) {
-        Serial.print("\nEnter power (0-255)\n");
+        Serial1.print("\nEnter power (0-255)\n");
         number = getInt();
     }
     recv.pwm = number;
 
     number = -1;
     while (number < 0) {
-        Serial.print("\nEnter duration (ms)\n");
+        Serial1.print("\nEnter duration (ms)\n");
         number = getInt();
     }
     recv.duration = number;
@@ -44,20 +44,44 @@ oLoopCtrl getCtrInput() {
 int getInt() {
     char buffer[32];
 
-    while(!Serial.available()); //spin and wait for incoming data
-    int length = Serial.readBytesUntil('\n', buffer, 31);
+    while(!Serial1.available()); //spin and wait for incoming data
+    int length = Serial1.readBytesUntil('\n', buffer, 31);
     buffer[length] = '\0';      //terminate received string
     int number = atoi(buffer);
-    Serial.println(number);
+    Serial1.println(number);
     return number;
 }
 
 int displayMenu(String menu, int numOfChoices) {
-    Serial.print(menu);
+    Serial1.print(menu);
     int choice = -1;
     do {
-        while(!Serial.available());
+        while(!Serial1.available());
         choice = getInt();
     } while (choice < 0 || choice > numOfChoices - 1);
     return choice;
+}
+
+
+ros::NodeHandle ROSSERIAL::node;
+
+ROSSERIAL::ROSSERIAL():
+    msgPub("message", &msg), statePub("joint_state", &state) {
+    node.initNode();
+    node.advertise(msgPub);
+    node.advertise(statePub);
+}
+
+
+void ROSSERIAL::print(const char *message) {
+    msg.data = message;
+    msgPub.publish(&msg);
+    node.spinOnce();
+}
+
+void ROSSERIAL::sendState(float *jointAngle, int numOfJoint) {
+    state.position_length = numOfJoint;
+    state.position = jointAngle;
+    statePub.publish(&state);
+    node.spinOnce();
 }

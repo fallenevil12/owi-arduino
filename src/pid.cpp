@@ -1,10 +1,10 @@
 #include <Arduino.h>
 #include "pid.hh"
 
-PID::PID(double _kp, double _ki, double _kd):
+PID::PID(float _kp, float _ki, float _kd):
     kp(_kp), ki(_ki), kd(_kd) {}
 
-void PID::setGain(double _kp, double _ki, double _kd) {
+void PID::setGain(float _kp, float _ki, float _kd) {
     kp = _kp;
     ki = _ki;
     kd = _kd;
@@ -16,7 +16,7 @@ void PID::reset() {
     accmlErr = 0.0;
 }
 
-double PID::pidCal(double _val, double _refVal) {
+float PID::pidCal(float _val, float _refVal) {
     val = _val;
     refVal = _refVal;
     prevErr = err;

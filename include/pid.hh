@@ -3,21 +3,21 @@
 
 class PID {
 public:    
-    PID(double kp, double ki, double kd);
+    PID(float kp, float ki, float kd);
     void reset();
-    void setGain(double kp, double ki, double kd);
-    double pidCal(double val, double refVal);
+    void setGain(float kp, float ki, float kd);
+    float pidCal(float val, float refVal);
 
 private:
-    double val;
-    double refVal;
-    double kp;
-    double ki;
-    double kd;
-    double err{0.0};
-    double prevErr{0.0};
-    double accmlErr{0.0};
-    double gain;
+    float val;
+    float refVal;
+    float kp;
+    float ki;
+    float kd;
+    float err{0.0};
+    float prevErr{0.0};
+    float accmlErr{0.0};
+    float gain;
 
 }; //class PID
 

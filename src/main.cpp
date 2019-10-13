@@ -1,13 +1,13 @@
 #include <Arduino.h>
 #include <ros.h>
-#include <std_msgs/String.h>
 #include "owijoint.hh"
 #include "jointconfig.hh"
 #include "SerialHelper.hh"
 
+
+
 /** not using, setup in loop() */
 void setup() {
-    // not using, setup in loop()
 }
 
 /** used as main(), actual loop inside */
@@ -18,21 +18,18 @@ void loop() {
                               JOINT(joint3conf),
                               JOINT(joint4conf) };
 
-    static String menu("\n=======================================\n" 
-                       "0 - Peform initial joint direction test\n"
-                       "1 - Perform pid movement test\n"
-                       "2 - Become a ROS node\n"
-                       "ENTER A NUMBER\n");
+    static const char menu[] = "\n=======================================\n" 
+                               "0 - Peform initial joint direction test\n"
+                               "1 - Perform pid movement test\n"
+                               "2 - Become a ROS node\n"
+                               "ENTER A NUMBER\n";
+    
 
-    static ros::NodeHandle node;
-    static std_msgs::String msg;
-    static ros::Publisher publisher("message", &msg);
+    Serial1.begin(9600);
 
-    // Actual loop forever
+    // Actual loop
     while (true) {
-        Serial.begin(9600);
-
-        int choice = displayMenu(menu, 3);
+        int choice = displayMenu(String(menu), 3);
         switch (choice) {
           case 0:
             init_step_test(joint);
@@ -46,11 +43,23 @@ void loop() {
             break;
 
           case 2:
-            node.initNode();
-            node.advertise(publisher);
-            msg.data = "Hello";
-            publisher.publish(&msg);
-            node.spinOnce();
+            Serial1.println("Please close the serial monitor\n"
+                           "Then enter:\n"
+                           "rosrun rosserial_python serial_node.py /dev/ttyACM0");
+            delay(5000);
+            {
+            ROSSERIAL rosserial;
+            rosserial.print("Hello");
+            while(true) {
+                float angle[] = {joint[0].getAngle(),
+                                 joint[1].getAngle(),
+                                 joint[2].getAngle(),
+                                 joint[3].getAngle(),
+                                 joint[4].getAngle()};
+                rosserial.sendState(angle, 5);
+                delay(1000);
+            }
+            }
             break;
 
           default:

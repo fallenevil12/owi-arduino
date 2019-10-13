@@ -16,7 +16,7 @@ JOINT::JOINT(CONFIG config):
     safemin(config.degMin),
     safemax(config.degMax) {}
 
-bool JOINT::driveTo(double target) {
+bool JOINT::driveTo(float target) {
     getAngle();
 
     if (angle < safemin || angle > safemax || target < safemin || target > safemax) {
@@ -27,7 +27,7 @@ bool JOINT::driveTo(double target) {
         while(1);
     }
 
-    double k = pid.pidCal(angle, target);
+    float k = pid.pidCal(angle, target);
 
     if (k < 0) {
         k = fabs(k);
@@ -83,7 +83,7 @@ void JOINT::pid_test() {
     }
 }
 
-double JOINT::getAngle() {
+float JOINT::getAngle() {
     angle = pot.getDegreeVal() - offset;
     return angle;
 }
