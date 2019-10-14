@@ -4,75 +4,78 @@
 #include "jointconfig.hh"
 #include "SerialHelper.hh"
 
-void cmdCallback(const trajectory_msgs::JointTrajectoryPoint &cmd) {
+JOINT joint[5] = {JOINT(joint0conf),
+                  JOINT(joint1conf),
+                  JOINT(joint2conf),
+                  JOINT(joint3conf),
+                  JOINT(joint4conf) };
+
+void cmdCallback(const trajectory_msgs::JointTrajectoryPoint& cmd) {
+    adnoserial.println("Received command");
     for (int i = 0; i < cmd.positions_length; i++) {
-        adnoserial.Serial.println(cmd.positions[i]);
+        joint[i].driveTo(cmd.positions[i]);
     }
 }
 
-ADNOSERIAL adnoserial(Serial1);
 ROSSERIAL rosserial(&cmdCallback);
 
-/** dummy, not used */
-void setup() {}
 
-/** used as main(), actual loop inside */
+;
+
+void setup() {
+    adnoserial.begin(9600);
+    rosserial.init(115200);
+}
+
 void loop() {
-    adnoserial.Serial.println("Yo coming");
-    
-    JOINT joint[5] = {JOINT(joint0conf),
-                      JOINT(joint1conf),
-                      JOINT(joint2conf),
-                      JOINT(joint3conf),
-                      JOINT(joint4conf) };
+    static char menu[] = "\n=======================================\n" 
+                         "0 - Peform initial joint direction test\n"
+                         "1 - Perform pid movement test\n"
+                         "2 - Become a ROS node\n";
 
-    char menu[] = "\n=======================================\n" 
-                               "0 - Peform initial joint direction test\n"
-                               "1 - Perform pid movement test\n"
-                               "2 - Become a ROS node\n"
-                               "ENTER A NUMBER\n";
+    int choice = displayMenu(String(menu), 3);
+    switch (choice) {
 
-    // Actual loop
-    while (true) {
-        int choice = adnoserial.displayMenu(String(menu), 3);
-        switch (choice) {
-          case 0: //initial step test
-            init_step_test(joint);
-            break;
+    case 0: //initial step test
+        {
+          int i = displayMenu(String("\nEnter joint index\n"),5);
+          if (joint[i].test_step_pos()) {
+              adnoserial.println("Positive direction test PASSED");
+          } else {
+              adnoserial.println("Positive direction test FAILED");
+          }
 
-          case 1: //PID test
-            {
-            int i = adnoserial.displayMenu(String("\nEnter joint index\n"), 5);
-            joint[i].pid_test();
-            }
-            break;
-
-          case 2:
-            {
-            adnoserial.Serial.println("\nTo start the node run command:\n"
-                           "rosrun rosserial_python serial_node.py /dev/ttyACM0");
-
-            rosserial.print("Hello");
-            while(true) {
-                adnoserial.Serial.println("Yo Im here");
-                rosserial.print("Hello");
-                // float angle[] = {joint[0].getAngle(),
-                //                  joint[1].getAngle(),
-                //                  joint[2].getAngle(),
-                //                  joint[3].getAngle(),
-                //                  joint[4].getAngle()};
-                // rosserial.sendState(angle, 5);
-                delay(1000);
-            }
-            adnoserial.Serial.println("Yo I'm outta here");
-            }
-            break;
-
-          default:
-            break;
+          if (joint[i].test_step_neg()) {
+              adnoserial.println("negative direction test PASSED");
+          } else {
+              adnoserial.println("negative direction test FAILED");
+          }
         }
+        break;
 
-        delay(1000);
+    case 1: //PID test
+        {
+        int i = displayMenu(String("\nEnter joint index\n"), 5);
+        joint[i].pid_test();
+        }
+        break;
+
+    case 2: //start ros node mode, spin forever
+        adnoserial.println("\nTo start the node run command:\n"
+                        "rosrun rosserial_python serial_node.py /dev/ttyACM0");
+        while(true) {
+            rosserial.print("Hello");
+            float angle[] = {joint[0].getAngle(),
+                              joint[1].getAngle(),
+                              joint[2].getAngle(),
+                              joint[3].getAngle(),
+                              joint[4].getAngle()};
+            rosserial.pushState(angle, 5);
+            rosserial.pullCommand();
+        }
+        break;
+
+    default:
+        break;
     }
-
 }

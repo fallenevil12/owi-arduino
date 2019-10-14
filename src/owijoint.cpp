@@ -6,7 +6,7 @@
 #define ANALOG_RANGE 5.0
 #define VOLT2DEG_SCALE 50.0
 #define ACCURACY 1.0
-#define MAXPWM 100
+#define MAXPWM 200
 
 JOINT::JOINT(CONFIG config):
     driver(config.enPin, config.dirPin1, config.dirPin2), 
@@ -23,8 +23,11 @@ bool JOINT::driveTo(float target) {
         driver.setDuration(-1);
         driver.setPower(0);
         driver.output();
-        adnoserial.Serial.println("Critical: Joint angle or target out of safety bound. Operation halted.");
-        while(1);
+        char buffer[100];
+        sprintf(buffer, "Critical: Joint angle %d or target %d out of safety bound. Operation halted.",
+                static_cast<int>(angle), static_cast<int>(target));
+        adnoserial.println(buffer);
+        while(1); //spin, need reset
     }
 
     float k = pid.pidCal(angle, target);
@@ -39,9 +42,9 @@ bool JOINT::driveTo(float target) {
     driver.setPower(k*MAXPWM);
     driver.output();
     
-    Serial.println(angle);
+    adnoserial.println(angle);
 
-    if (k == 0.0) return true; // expecting 0.0 value pidCal would return if reached setpoint
+    if (k == 0.0) return true; // expecting 0.0 value that pidCal would return if reached setpoint
     else return false;
 }
 
@@ -52,18 +55,20 @@ bool JOINT::test_step_pos() {
     driver.setPower(100);
     driver.output();
 
-    if (pot.getDegreeVal() - angle > 10.0) return true;
+    delay(500);
+    if (pot.getDegreeVal() - angle > 3.0) return true;
     else return false;
 }
 
 bool JOINT::test_step_neg() {
     angle = pot.getDegreeVal();
     driver.setDirection(MOTOR::dir::CCW);
-    driver.setDuration(200);
+    driver.setDuration(500);
     driver.setPower(100);
     driver.output();
 
-    if (pot.getDegreeVal() - angle < -10.0) return true;
+    delay(500);
+    if (pot.getDegreeVal() - angle < -3.0) return true;
     else return false;
 }
 
@@ -73,12 +78,12 @@ void JOINT::pid_test() {
     sprintf(buffer, "Enter target angle degree (%d to %d)", static_cast<int>(safemin), static_cast<int>(safemax));
 
     do {
-        adnoserial.Serial.println(buffer);
-        target = adnoserial.getInt();
+        adnoserial.println(buffer);
+        target = getInt();
     } while (target < safemin || target > safemax);
 
     while (!driveTo(target)) {
-        delay(10);
+        delay(1);
     }
 }
 
@@ -87,19 +92,4 @@ float JOINT::getAngle() {
     return angle;
 }
 
-void init_step_test(JOINT *joint) {
-    char buffer[100];
-    for (int i = 0; i < 5; i++) {
-        if (!joint[i].test_step_pos()) {
-            sprintf(buffer, "Joint[%d] tested failed in positive direction", i);
-            adnoserial.Serial.println(buffer);
-        }
-        delay(500);
-        if (!joint[i].test_step_neg()) {
-            sprintf(buffer, "Joint[%d] tested failed in negative direction", i);
-            adnoserial.Serial.println(buffer);
-        }
-        delay(500);
-    }
-}
 

@@ -21,15 +21,21 @@ float PID::pidCal(float _val, float _refVal) {
     refVal = _refVal;
     prevErr = err;
     err = val - refVal;
+    static int count = 0;
 
-    // return 0 if set point has been reached within accuracy of 1 degree
-    if (fabs(err) < 1.0 && fabs(err-prevErr) < 1.0 ) {
-        reset();
-        return 0.0;
+    // return 0 if error stayed within accuracy of 3 degree for a while
+    if (fabs(err) < 3.0) {
+        count++;
+        if (fabs(ki*accmlErr) < kp*err) accmlErr = accmlErr + err; //add i term
+        if (count > 100) {
+            count = 0;
+            reset();
+            return 0.0;
+        }
+    } else {
+        count = 0;
+        accmlErr = 0;
     }
-
-    accmlErr = accmlErr + err;
-    if (ki*accmlErr > 0.5) accmlErr = 0.5/ki; //anti windup
 
     gain = kp*err + ki*accmlErr + kd*(err-prevErr);
     if (gain < -1.0) gain = -1.0;

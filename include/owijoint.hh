@@ -6,8 +6,6 @@
 #include "pid.hh"
 #include "SerialHelper.hh"
 
-extern ADNOSERIAL adnoserial;
-
 /** Represent a joint (and coresponding link) on OWI robot with control methods */
 class JOINT {
 public:
@@ -88,11 +86,7 @@ private:
 
 }; //class JOINT
 
-/** 
- * Initial stepping to test if the rotation directions are as expected
- * make sure joints has enough room to move about 10degree, as this is open loop and has no safety check
- */
-void init_step_test(JOINT *joint);
+
 
 
 #endif //OWIJOINT_HH
