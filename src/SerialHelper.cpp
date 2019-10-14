@@ -25,17 +25,15 @@ void ROSSERIAL::init(long baud) {
 void ROSSERIAL::print(const char *message) {
     msg.data = message;
     msgPub.publish(&msg);
-    node.spinOnce();
 }
 
 void ROSSERIAL::pushState(float *jointAngle, int numOfJoint) {
     state.position_length = numOfJoint;
     state.position = jointAngle;
     statePub.publish(&state);
-    node.spinOnce();
 }
 
-void ROSSERIAL::pullCommand() {
+void ROSSERIAL::update() {
     node.spinOnce();
 }
 

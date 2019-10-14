@@ -51,7 +51,7 @@ public:
     void init(long baud);
     void print(const char *message);
     void pushState(float *jointAngle, int numOfJoint);
-    void pullCommand();
+    void update();
 protected:
     static ros::NodeHandle node;
     std_msgs::String msg;

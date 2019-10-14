@@ -4,7 +4,7 @@
         "PLATFORMIO_CALLER": "vscode"
     },
     "terminal.integrated.env.linux": {
-        "PATH": "/home/phongbach/.platformio/penv/bin:/home/phongbach/.platformio/penv:/home/phongbach/.vscode-server/bin/88f15d17dca836346e787762685a40bb5cce75a8/bin:/opt/ros/melodic/bin:/home/phongbach/.vscode-server/bin/88f15d17dca836346e787762685a40bb5cce75a8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+        "PATH": "/home/bnguye14/.platformio/penv/bin:/home/bnguye14/.platformio/penv:/home/bnguye14/.vscode-server/bin/88f15d17dca836346e787762685a40bb5cce75a8/bin:/home/bnguye14/bin:/home/bnguye14/.local/bin:/opt/ros/melodic/bin:/home/bnguye14/.vscode-server/bin/88f15d17dca836346e787762685a40bb5cce75a8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
         "PLATFORMIO_CALLER": "vscode"
     },
     "python.pythonPath": "/usr/bin/python"

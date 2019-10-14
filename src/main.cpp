@@ -1,8 +1,14 @@
 #include <Arduino.h>
 #include <ros.h>
+#include <Arduino_FreeRTOS.h>
 #include "owijoint.hh"
 #include "jointconfig.hh"
 #include "SerialHelper.hh"
+
+void cmdCallback(const trajectory_msgs::JointTrajectoryPoint& cmd);
+void taskROS(void *pvParameters);
+
+ROSSERIAL rosserial(&cmdCallback);
 
 JOINT joint[5] = {JOINT(joint0conf),
                   JOINT(joint1conf),
@@ -10,17 +16,10 @@ JOINT joint[5] = {JOINT(joint0conf),
                   JOINT(joint3conf),
                   JOINT(joint4conf) };
 
-void cmdCallback(const trajectory_msgs::JointTrajectoryPoint& cmd) {
-    adnoserial.println("Received command");
-    for (int i = 0; i < cmd.positions_length; i++) {
-        joint[i].driveTo(cmd.positions[i]);
-    }
-}
-
-ROSSERIAL rosserial(&cmdCallback);
-
-
-;
+char menu[] = "\n=======================================\n" 
+                         "0 - Peform initial joint direction test\n"
+                         "1 - Perform pid movement test\n"
+                         "2 - Become a ROS node\n";
 
 void setup() {
     adnoserial.begin(9600);
@@ -28,10 +27,6 @@ void setup() {
 }
 
 void loop() {
-    static char menu[] = "\n=======================================\n" 
-                         "0 - Peform initial joint direction test\n"
-                         "1 - Perform pid movement test\n"
-                         "2 - Become a ROS node\n";
 
     int choice = displayMenu(String(menu), 3);
     switch (choice) {
@@ -64,18 +59,28 @@ void loop() {
         adnoserial.println("\nTo start the node run command:\n"
                         "rosrun rosserial_python serial_node.py /dev/ttyACM0");
         while(true) {
-            rosserial.print("Hello");
             float angle[] = {joint[0].getAngle(),
                               joint[1].getAngle(),
                               joint[2].getAngle(),
                               joint[3].getAngle(),
                               joint[4].getAngle()};
             rosserial.pushState(angle, 5);
-            rosserial.pullCommand();
+            rosserial.update();
+            delay(10);
         }
         break;
 
     default:
         break;
+    }
+}
+
+
+
+
+void cmdCallback(const trajectory_msgs::JointTrajectoryPoint& cmd) {
+    adnoserial.println("Received command");
+    for (int i = 0; i < cmd.positions_length; i++) {
+        joint[i].driveTo(cmd.positions[i]);
     }
 }
