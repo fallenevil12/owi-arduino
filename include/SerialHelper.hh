@@ -8,7 +8,7 @@
 #include <trajectory_msgs/JointTrajectoryPoint.h>
 #include "motor.hh"
 
-#define adnoserial Serial1
+#define adnoserial Serial0
 
 /**
  * Struct to store parametters for openloop motor control
