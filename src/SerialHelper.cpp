@@ -78,7 +78,7 @@ oLoopCtrl getCtrInput() {
 int getInt() {
     char buffer[10];
 
-    while(!adnoserial.available()) vTaskDelay(1000/portTICK_PERIOD_MS);
+    while(!adnoserial.available()) vTaskDelay(100/portTICK_PERIOD_MS);
     int length = adnoserial.readBytesUntil('\n', buffer, 10);
     buffer[length] = '\0';      //terminate received string
     int number = atoi(buffer);

@@ -14,9 +14,14 @@ JOINT::JOINT(CONFIG config):
     pid(config.pid),
     offset(config.degOffset),
     safemin(config.degMin),
-    safemax(config.degMax) {}
+    safemax(config.degMax),
+    target((safemin + safemax)/2) {}
 
-bool JOINT::driveTo(float target) {
+void JOINT::setTarget(float targetAngle) {
+    target = targetAngle;
+}
+
+bool JOINT::actuate() {
     getAngle();
 
     if (target < safemin || target > safemax) {
@@ -24,9 +29,9 @@ bool JOINT::driveTo(float target) {
         driver.setPower(0);
         driver.output();
         char buffer[100];
-        sprintf(buffer, "Critical: Target %d out of safety bound. Operation halted.", static_cast<int>(target));
+        sprintf(buffer, "Critical: Target %d out of safety bound. Halt movement.", static_cast<int>(target));
         adnoserial.println(buffer);
-        while(1); //spin, need reset
+        return true;
     }
 
     float k = pid.pidCal(angle, target);
@@ -70,7 +75,6 @@ bool JOINT::test_step_neg() {
 }
 
 void JOINT::pid_test() {
-    int target = 0;
     char buffer[100];
     sprintf(buffer, "Enter target angle degree (%d to %d)", static_cast<int>(safemin), static_cast<int>(safemax));
 
@@ -79,7 +83,7 @@ void JOINT::pid_test() {
         target = getInt();
     } while (target < safemin || target > safemax);
 
-    while (!driveTo(target)) {
+    while (!actuate()) {
         delay(1);
     }
 }

@@ -36,13 +36,17 @@ public:
     JOINT(CONFIG config);
 
     /**
-     * <WARNING> at this time this method has to be called within a 
-     * loop without excessive delay </WARNING>
-     * rotate joint to angle
-     * @param target angle value in degree
-     * @return true once reached target (within defined accuracy)
+     * 
      */
-    bool driveTo(float target);
+    void setTarget(float targetAngle);
+
+    /**
+     * <WARNING> at this time this method has to be called within a 
+     * loop with small period </WARNING>
+     * rotate joint to target angle
+     * @return true if reached target or target out of bound
+     */
+    bool actuate();
 
     /**
      * for initial testing of correct wiring of motor and sensor
@@ -83,6 +87,8 @@ private:
     float safemax;
     /* corresponding link angle */
     float angle;
+    /* target angle */
+    float target;
 
 }; //class JOINT
 

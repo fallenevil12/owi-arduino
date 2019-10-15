@@ -4,7 +4,6 @@
 class PID {
 public:    
     PID(float kp, float ki, float kd);
-    void reset();
     void setGain(float kp, float ki, float kd);
     float pidCal(float val, float refVal);
 

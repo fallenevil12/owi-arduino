@@ -1,13 +1,15 @@
 #include <Arduino.h>
 #include <ros.h>
 #include <Arduino_FreeRTOS.h>
+#include <timers.h>
 #include "owijoint.hh"
 #include "jointconfig.hh"
 #include "SerialHelper.hh"
 
 void cmdCallback(const trajectory_msgs::JointTrajectoryPoint& cmd);
-void task_ROS(void *pvParameters);
-void task_Serial(void *pvParameters);
+void task_ROS(void *pvParams);
+void task_Serial(void *pvParams);
+void task_actuate(void *pvParams);
 
 ROSSERIAL rosserial(&cmdCallback);
 
@@ -25,15 +27,16 @@ void setup() {
 }
 
 // Callback for ROS whenever a new command is received
+// Update joints target angles
 void cmdCallback(const trajectory_msgs::JointTrajectoryPoint& cmd) {
-    adnoserial.println("Received command");
+    adnoserial.println("Received a command");
     for (int i = 0; i < cmd.positions_length; i++) {
-        joint[i].driveTo(cmd.positions[i]);
+        joint[i].setTarget(cmd.positions[i]);
     }
 }
 
 // Handle ROS communication periodically
-void task_ROS(void *pvParameters) {
+void task_ROS(void *pvParams) {
     TickType_t xLastWakeTime = xTaskGetTickCount();
     while(true) {
         rosserial.pushMsg("Hello");
@@ -45,11 +48,11 @@ void task_ROS(void *pvParameters) {
         rosserial.pushState(angle, 5);
         rosserial.update();
 
-        vTaskDelayUntil(&xLastWakeTime, 100/portTICK_PERIOD_MS);
+        vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS(100));
     }
 }
 
-void task_Serial(void *pvParameters) {
+void task_Serial(void *pvParams) {
     static char menu[] = "\n=======================================\n" 
                          "0 - Peform initial joint direction test\n"
                          "1 - Perform pid movement test\n"
@@ -88,13 +91,22 @@ void task_Serial(void *pvParameters) {
             adnoserial.println( "\nTo start the node run command:\n"
                                 "rosrun rosserial_python serial_node.py /dev/ttyACM0");
             
+            xTaskCreate(&task_actuate, "ACTUATE", 512, NULL, 0, NULL);
             break;
 
         default:
             break;
         }
-        vTaskDelay(1000/portTICK_PERIOD_MS);
     }
+}
+
+void task_actuate(void *pvParams) {
+    while(true) {
+        for (int i = 0; i < 4; i++) {
+            joint[i].actuate();
+        } 
+    }
+    vTaskDelay(0);
 }
 
 // Not used for RTOS
