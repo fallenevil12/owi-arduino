@@ -7,7 +7,7 @@
 #include "SerialHelper.hh"
 
 /** Prototypes */
-void cmdCallback(const trajectory_msgs::JointTrajectoryPoint& cmd);
+void cmdCallback(const std_msgs::Int16MultiArray& cmd);
 void task_ROS(void *pvParams);
 void task_Serial(void *pvParams);
 void task_actuate(void *pvParams);
@@ -25,20 +25,20 @@ JOINT joint[5] = {JOINT(joint0conf),
 void setup() {
     adnoserial.begin(9600);
     rosserial.init(115200);
-    xTaskCreate(&task_ROS, "ROS", 512, NULL, 2, NULL);
+    xTaskCreate(&task_ROS, "ROS", 512, NULL, 0, NULL);
     xTaskCreate(&task_Serial, "MENU", 512, NULL, 0, NULL);
     xTaskCreate(&task_actuate, "ACTUATE", 512, NULL, 0, NULL);
 }
 
 // Callback for ROS whenever a new command is received
 // Update joints target angles
-void cmdCallback(const trajectory_msgs::JointTrajectoryPoint& cmd) {
+void cmdCallback(const std_msgs::Int16MultiArray& cmd) {
     if (!ROSctrl) return;
 
     adnoserial.println("Received a command");
-    for (int i = 0; i < cmd.positions_length; i++) {
-        adnoserial.println(cmd.positions[i]);
-        joint[i].setTarget(cmd.positions[i]);
+    for (int i = 0; i < cmd.data_length; i++) {
+        adnoserial.println(cmd.data[i]);
+        joint[i].setTarget(cmd.data[i]);
     }
 }
 
@@ -55,10 +55,10 @@ void task_ROS(void *pvParams) {
             elapsed = 0;
             rosserial.pushMsg("Hello");
             float angle[] = {joint[0].getAngle(),
-                            joint[1].getAngle(),
-                            joint[2].getAngle(),
-                            joint[3].getAngle(),
-                            joint[4].getAngle()};
+                             joint[1].getAngle(),
+                             joint[2].getAngle(),
+                             joint[3].getAngle(),
+                             joint[4].getAngle()};
             rosserial.pushState(angle, 5);
         }
         rosserial.update();
@@ -69,7 +69,7 @@ void task_ROS(void *pvParams) {
 // Handle serial communication
 void task_Serial(void *pvParams) {
     static char menu[] = "\nTo start the ROS node open a terminal and run command:\n"
-                         "rosrun rosserial_python serial_node.py /dev/ttyACM0"
+                         "rosrun rosserial_python serial_node.py /dev/ttyUSB0"
                          "\n=======================================\n" 
                          "0 - Peform initial joint direction test\n"
                          "1 - Perform pid movement test\n"
@@ -105,7 +105,6 @@ void task_Serial(void *pvParams) {
 
         case 2: //start ros node mode
             ROSctrl = true;
-            vTaskSuspend(NULL);
             break;
 
         default:
@@ -120,7 +119,7 @@ void task_actuate(void *pvParams) {
     while(true) {
         if (!ROSctrl) continue;
         for (int i = 0; i < 4; i++) {
-            //joint[i].actuate();
+            joint[i].actuate();
         } 
         vTaskDelay(0);
     }

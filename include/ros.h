@@ -5,10 +5,6 @@
 #include <HardwareSerial.h>
 #include "ros/node_handle.h"
 
-namespace ros {
-  typedef NodeHandle_<ArduinoHardware,25,25,1024,1024> NodeHandle;
-}
-
 class ArduinoHardware {
   public:
     ArduinoHardware() {
@@ -46,5 +42,10 @@ class ArduinoHardware {
     HardwareSerial* iostream;
     long baud_;
 };
+
+namespace ros {
+  typedef NodeHandle_<ArduinoHardware,25,25,512,512> NodeHandle;
+}
+
 
 #endif //_ROS_H_

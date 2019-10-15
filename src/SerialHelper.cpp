@@ -8,7 +8,7 @@
  */
 ros::NodeHandle ROSSERIAL::node;
 
-ROSSERIAL::ROSSERIAL(void(*cmdCallback)(const trajectory_msgs::JointTrajectoryPoint&)):
+ROSSERIAL::ROSSERIAL(void(*cmdCallback)(const std_msgs::Int16MultiArray&)):
     msgPub("message", &msg),
     statePub("joint_state", &state),
     cmdSub("command", cmdCallback) {

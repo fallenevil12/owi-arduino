@@ -6,9 +6,10 @@
 #include <sensor_msgs/JointState.h>
 #include <std_msgs/Empty.h>
 #include <trajectory_msgs/JointTrajectoryPoint.h>
+#include <std_msgs/Int16MultiArray.h>
 #include "motor.hh"
 
-#define adnoserial Serial0
+#define adnoserial Serial
 
 /**
  * Struct to store parametters for openloop motor control
@@ -47,7 +48,7 @@ int displayMenu(const char* menu, int numOfChoice);
  */
 class ROSSERIAL {
 public:
-    ROSSERIAL(void(*cmdCallback)(const trajectory_msgs::JointTrajectoryPoint&));
+    ROSSERIAL(void(*cmdCallback)(const std_msgs::Int16MultiArray&));
     void init(long baud);
     void pushMsg(const char *message);
     void pushState(float *jointAngle, int numOfJoint);
@@ -59,7 +60,8 @@ protected:
     trajectory_msgs::JointTrajectoryPoint cmd;
     ros::Publisher msgPub;
     ros::Publisher statePub;
-    ros::Subscriber<trajectory_msgs::JointTrajectoryPoint> cmdSub;
+    //ros::Subscriber<trajectory_msgs::JointTrajectoryPoint> cmdSub;
+    ros::Subscriber<std_msgs::Int16MultiArray> cmdSub;
 }; //class ROSSERIAL
 
 #endif //SERIALHELPER_HH
