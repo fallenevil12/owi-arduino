@@ -35,6 +35,7 @@ float PID::pidCal(float _val, float _refVal) {
     }
 
     gain = kp*err + ki*accmlErr + kd*(err-prevErr);
-    if (fabs(gain) > 1.0) gain = gain/gain;
+    if (gain > 1.0) gain = 1.0;
+    if (gain < -1.0) gain = -1.0;
     return gain;
 }

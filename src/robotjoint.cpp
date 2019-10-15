@@ -26,10 +26,10 @@ float JOINT::getAngle() {
 
     if (angle < safemin || angle > safemax) {
         halt();
-        //char buffer[100];
-        //sprintf(buffer, "\n!!!Critical: Joint angle (%d) out of safety bound. Operation halted.\n", static_cast<int>(angle));
-        //adnoserial.println(buffer);
-        //while(1);
+        char buffer[100];
+        sprintf(buffer, "\n!!!Critical: Joint angle (%d) out of safety bound. Operation halted.\n", static_cast<int>(angle));
+        adnoserial.println(buffer);
+        while(1);
     }
 
     return angle;
@@ -61,7 +61,7 @@ bool JOINT::actuate() {
     }
     driver.setDuration(-1);
     driver.setPower(k*MAXPWM);
-    //driver.output();
+    driver.output();
     
     if (k == 0.0) return true; // expecting 0.0 value that pidCal would return if reached setpoint
     else return false;

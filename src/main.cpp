@@ -25,9 +25,9 @@ JOINT joint[5] = {JOINT(joint0conf),
 void setup() {
     adnoserial.begin(9600);
     rosserial.init(115200);
-    xTaskCreate(&task_ROS, "ROS", 512, NULL, 0, NULL);
+    //xTaskCreate(&task_ROS, "ROS", 512, NULL, 0, NULL);
     xTaskCreate(&task_Serial, "MENU", 512, NULL, 0, NULL);
-    xTaskCreate(&task_actuate, "ACTUATE", 512, NULL, 0, NULL);
+    //xTaskCreate(&task_actuate, "ACTUATE", 512, NULL, 0, NULL);
 }
 
 // Callback for ROS whenever a new command is received
