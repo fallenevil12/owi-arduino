@@ -12,7 +12,6 @@ ROSSERIAL::ROSSERIAL(void(*cmdCallback)(const trajectory_msgs::JointTrajectoryPo
     msgPub("message", &msg),
     statePub("joint_state", &state),
     cmdSub("command", cmdCallback) {
-
 }
 
 void ROSSERIAL::init(long baud) {

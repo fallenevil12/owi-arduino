@@ -2,7 +2,7 @@
 #define JOINTCONFIG_HH
 
 #include <Arduino.h>
-#include "owijoint.hh"
+#include "robotjoint.hh"
 
 JOINT::CONFIG joint0conf {
     .enPin = 2,
