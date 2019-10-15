@@ -6,7 +6,7 @@
 #define ANALOG_RANGE 5.0
 #define VOLT2DEG_SCALE 50.0
 #define ACCURACY 1.0
-#define MAXPWM 200
+#define MAXPWM 255
 
 JOINT::JOINT(CONFIG config):
     driver(config.enPin, config.dirPin1, config.dirPin2), 
@@ -19,13 +19,12 @@ JOINT::JOINT(CONFIG config):
 bool JOINT::driveTo(float target) {
     getAngle();
 
-    if (angle < safemin || angle > safemax || target < safemin || target > safemax) {
+    if (target < safemin || target > safemax) {
         driver.setDuration(-1);
         driver.setPower(0);
         driver.output();
         char buffer[100];
-        sprintf(buffer, "Critical: Joint angle %d or target %d out of safety bound. Operation halted.",
-                static_cast<int>(angle), static_cast<int>(target));
+        sprintf(buffer, "Critical: Target %d out of safety bound. Operation halted.", static_cast<int>(target));
         adnoserial.println(buffer);
         while(1); //spin, need reset
     }
@@ -42,8 +41,6 @@ bool JOINT::driveTo(float target) {
     driver.setPower(k*MAXPWM);
     driver.output();
     
-    adnoserial.println(angle);
-
     if (k == 0.0) return true; // expecting 0.0 value that pidCal would return if reached setpoint
     else return false;
 }
@@ -52,7 +49,7 @@ bool JOINT::test_step_pos() {
     angle = pot.getDegreeVal();
     driver.setDirection(MOTOR::dir::CW);
     driver.setDuration(500);
-    driver.setPower(100);
+    driver.setPower(200);
     driver.output();
 
     delay(500);
@@ -64,7 +61,7 @@ bool JOINT::test_step_neg() {
     angle = pot.getDegreeVal();
     driver.setDirection(MOTOR::dir::CCW);
     driver.setDuration(500);
-    driver.setPower(100);
+    driver.setPower(200);
     driver.output();
 
     delay(500);
@@ -89,6 +86,17 @@ void JOINT::pid_test() {
 
 float JOINT::getAngle() {
     angle = pot.getDegreeVal() - offset;
+
+    if (angle < safemin || angle > safemax) {
+    driver.setDuration(-1);
+    driver.setPower(0);
+    driver.output();
+    char buffer[100];
+    sprintf(buffer, "Critical: Joint angle (%d) out of safety bound. Operation halted.", static_cast<int>(angle));
+    adnoserial.println(buffer);
+    while(1); //spin, need reset
+    }
+
     return angle;
 }
 

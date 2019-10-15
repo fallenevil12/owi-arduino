@@ -12,7 +12,7 @@ JOINT::CONFIG joint0conf {
     .degOffset = 130.0,
     .degMin = -100.0,
     .degMax = 100.0,
-    .pid = PID(0.1, 0.001, 0.3)
+    .pid = PID(0.1, 0.0, 0.2)
 };
 
 JOINT::CONFIG joint1conf {
@@ -23,7 +23,7 @@ JOINT::CONFIG joint1conf {
     .degOffset = 40.0,
     .degMin = 20.0,
     .degMax = 160,
-    .pid = PID(0.1, 0.001, 0.3)
+    .pid = PID(0.1, 0.0, 0.2)
 };
 
 JOINT::CONFIG joint2conf {
@@ -34,7 +34,7 @@ JOINT::CONFIG joint2conf {
     .degOffset = 130.0,
     .degMin = -100.0,
     .degMax = 100.0,
-    .pid = PID(0.1, 0.001, 0.3)
+    .pid = PID(0.1, 0.0, 0.2)
 };
 JOINT::CONFIG joint3conf {
     .enPin = 5,
@@ -44,7 +44,7 @@ JOINT::CONFIG joint3conf {
     .degOffset = 130.0,
     .degMin = -60.0,
     .degMax = 60.0,
-    .pid = PID(0.1, 0.00, 0.3)
+    .pid = PID(0.1, 0.0, 0.2)
 };
 
     JOINT::CONFIG joint4conf {
@@ -55,7 +55,7 @@ JOINT::CONFIG joint3conf {
     .degOffset = 130.0,
     .degMin = -60.0,
     .degMax = 60.0,
-    .pid = PID(0.1, 0.001, 0.3)
+    .pid = PID(0.1, 0.0, 0.2)
 };
 
 #endif //JOINTCONFIG_HH

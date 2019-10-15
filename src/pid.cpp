@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include "pid.hh"
 
+#define ACCURACY 3.0
+
 PID::PID(float _kp, float _ki, float _kd):
     kp(_kp), ki(_ki), kd(_kd) {}
 
@@ -23,10 +25,11 @@ float PID::pidCal(float _val, float _refVal) {
     err = val - refVal;
     static int count = 0;
 
-    // return 0 if error stayed within accuracy of 3 degree for a while
-    if (fabs(err) < 3.0) {
+    // return 0 if error stayed within accuracy for a while
+    // add i term to reduce small error
+    if (fabs(err) < ACCURACY) {
         count++;
-        if (fabs(ki*accmlErr) < kp*err) accmlErr = accmlErr + err; //add i term
+        if (fabs(ki*accmlErr) < 0.5) accmlErr = accmlErr + err; // anti windup
         if (count > 100) {
             count = 0;
             reset();

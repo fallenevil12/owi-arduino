@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "SerialHelper.hh"
+#include <Arduino_FreeRTOS.h>
 
 
 /**
@@ -22,7 +23,7 @@ void ROSSERIAL::init(long baud) {
     node.subscribe(cmdSub);
 }
 
-void ROSSERIAL::print(const char *message) {
+void ROSSERIAL::pushMsg(const char *message) {
     msg.data = message;
     msgPub.publish(&msg);
 }
@@ -50,7 +51,7 @@ oLoopCtrl getCtrInput() {
     char dir = ' ';
     while (dir != 'r' && dir !='l') {
         adnoserial.print("\nEnter direction (l/r)\n");
-        while(!adnoserial.available());
+        while(!adnoserial.available()) vTaskDelay(100/portTICK_PERIOD_MS);
         dir = adnoserial.read();
     }
     (dir == 'r') ? (recv.direction = MOTOR::dir::CW) : 
@@ -77,7 +78,7 @@ oLoopCtrl getCtrInput() {
 int getInt() {
     char buffer[10];
 
-    while(!adnoserial.available()); //spin and wait for incoming data
+    while(!adnoserial.available()) vTaskDelay(1000/portTICK_PERIOD_MS);
     int length = adnoserial.readBytesUntil('\n', buffer, 10);
     buffer[length] = '\0';      //terminate received string
     int number = atoi(buffer);
@@ -85,11 +86,10 @@ int getInt() {
     return number;
 }
 
-int displayMenu(String menu, int numOfChoices) {
+int displayMenu(const char* menu, int numOfChoices) {
     adnoserial.print(menu);
     int choice = -1;
     do {
-        while(!adnoserial.available());
         choice = getInt();
     } while (choice < 0 || choice > numOfChoices - 1);
     return choice;

@@ -39,7 +39,7 @@ int getInt();
  * @param numOfChoice number of choices
  * @return user's input
  */
-int displayMenu(String menu, int numOfChoice);
+int displayMenu(const char* menu, int numOfChoice);
 
 /**
  * initilization and helper methods of a rosnode,
@@ -49,7 +49,7 @@ class ROSSERIAL {
 public:
     ROSSERIAL(void(*cmdCallback)(const trajectory_msgs::JointTrajectoryPoint&));
     void init(long baud);
-    void print(const char *message);
+    void pushMsg(const char *message);
     void pushState(float *jointAngle, int numOfJoint);
     void update();
 protected:
