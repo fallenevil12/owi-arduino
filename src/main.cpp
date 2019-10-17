@@ -7,7 +7,7 @@
 #include "SerialHelper.hh"
 
 /** Prototypes */
-void cmdCallback(const std_msgs::Int16MultiArray& cmd);
+void cmdCallback(const owi_msgs::position_cmd& cmd);
 void task_ROS(void *pvParams);
 void task_Serial(void *pvParams);
 void task_actuate(void *pvParams);
@@ -32,13 +32,13 @@ void setup() {
 
 // Callback for ROS whenever a new command is received
 // Update joints target angles
-void cmdCallback(const std_msgs::Int16MultiArray& cmd) {
+void cmdCallback(const owi_msgs::position_cmd& cmd) {
     if (!ROSctrl) return;
 
     adnoserial.println("Received a command");
-    for (int i = 0; i < cmd.data_length; i++) {
-        adnoserial.println(cmd.data[i]);
-        joint[i].setTarget(cmd.data[i]);
+    for (int i = 0; i < 5; i++) {
+        adnoserial.println(cmd.position[i]);
+        joint[i].setTarget(cmd.position[i]);
     }
 }
 

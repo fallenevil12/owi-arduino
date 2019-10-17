@@ -3,11 +3,8 @@
 
 #include <ros.h>
 #include <std_msgs/String.h>
-#include <sensor_msgs/JointState.h>
-#include <std_msgs/Empty.h>
-#include <joint_state.h>
-#include <trajectory_msgs/JointTrajectoryPoint.h>
-#include <std_msgs/Int16MultiArray.h>
+#include <owi_msgs/joint_state.h>
+#include <owi_msgs/position_cmd.h>
 #include "motor.hh"
 
 #define adnoserial Serial
@@ -49,7 +46,7 @@ int displayMenu(const char* menu, int numOfChoice);
  */
 class ROSSERIAL {
 public:
-    ROSSERIAL(void(*cmdCallback)(const std_msgs::Int16MultiArray&));
+    ROSSERIAL(void(*cmdCallback)(const owi_msgs::position_cmd&));
     void init(long baud);
     void pushMsg(const char *message);
     void pushState(float *jointAngle, int numOfJoint);
@@ -57,12 +54,11 @@ public:
 protected:
     static ros::NodeHandle node;
     std_msgs::String msg;
-    sensor_msgs::JointState state;
-    trajectory_msgs::JointTrajectoryPoint cmd;
+    owi_msgs::joint_state state;
+    owi_msgs::position_cmd cmd;
     ros::Publisher msgPub;
     ros::Publisher statePub;
-    //ros::Subscriber<trajectory_msgs::JointTrajectoryPoint> cmdSub;
-    ros::Subscriber<std_msgs::Int16MultiArray> cmdSub;
+    ros::Subscriber<owi_msgs::position_cmd> cmdSub;
 }; //class ROSSERIAL
 
 #endif //SERIALHELPER_HH

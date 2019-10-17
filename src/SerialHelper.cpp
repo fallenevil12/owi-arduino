@@ -8,7 +8,7 @@
  */
 ros::NodeHandle ROSSERIAL::node;
 
-ROSSERIAL::ROSSERIAL(void(*cmdCallback)(const std_msgs::Int16MultiArray&)):
+ROSSERIAL::ROSSERIAL(void(*cmdCallback)(const owi_msgs::position_cmd&)):
     msgPub("message", &msg),
     statePub("joint_state", &state),
     cmdSub("command", cmdCallback) {
@@ -28,8 +28,10 @@ void ROSSERIAL::pushMsg(const char *message) {
 }
 
 void ROSSERIAL::pushState(float *jointAngle, int numOfJoint) {
-    state.position_length = numOfJoint;
-    state.position = jointAngle;
+    //state.position_length = numOfJoint;
+    for (int i = 0; i < numOfJoint; i++) {
+        state.position[i] = jointAngle[i];
+    }
     statePub.publish(&state);
 }
 
