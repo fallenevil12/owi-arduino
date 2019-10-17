@@ -5,6 +5,7 @@
 #include <std_msgs/String.h>
 #include <sensor_msgs/JointState.h>
 #include <std_msgs/Empty.h>
+#include <joint_state.h>
 #include <trajectory_msgs/JointTrajectoryPoint.h>
 #include <std_msgs/Int16MultiArray.h>
 #include "motor.hh"
