@@ -26,10 +26,10 @@ float JOINT::getAngle() {
 
     if (angle < safemin || angle > safemax) {
         halt();
-        char buffer[100];
-        sprintf(buffer, "\n!!!Critical: Joint angle (%d) out of safety bound. Operation halted.\n", static_cast<int>(angle));
-        adnoserial.println(buffer);
-        while(1);
+        // char buffer[100];
+        // sprintf(buffer, "\n!!!Critical: Joint angle (%d) out of safety bound. Operation halted.\n", static_cast<int>(angle));
+        // adnoserial.println(buffer);
+        // while(1);
     }
 
     return angle;
@@ -43,7 +43,7 @@ void JOINT::halt() {
 bool JOINT::actuate() {
     getAngle();
 
-    if (target < safemin || target > safemax) {
+    if (target < safemin + 5 || target > safemax - 5) {
         halt();
         //char buffer[100];
         //sprintf(buffer, "\n!!!Warning: Target %d out of safety bound. Halt movement!\n", static_cast<int>(target));
@@ -68,7 +68,7 @@ bool JOINT::actuate() {
 }
 
 bool JOINT::test_step_pos() {
-    angle = pot.getDegreeVal();
+    int angle = pot.getDegreeVal();
     driver.setDirection(MOTOR::dir::CW);
     driver.setDuration(500);
     driver.setPower(200);
@@ -80,7 +80,7 @@ bool JOINT::test_step_pos() {
 }
 
 bool JOINT::test_step_neg() {
-    angle = pot.getDegreeVal();
+    int angle = pot.getDegreeVal();
     driver.setDirection(MOTOR::dir::CCW);
     driver.setDuration(500);
     driver.setPower(200);

@@ -8,7 +8,7 @@
  */
 ros::NodeHandle ROSSERIAL::node;
 
-ROSSERIAL::ROSSERIAL(void(*cmdCallback)(const owi_msgs::position_cmd&)):
+ROSSERIAL::ROSSERIAL(void(*cmdCallback)(const owi::position_cmd&)):
     msgPub("message", &msg),
     statePub("joint_state", &state),
     cmdSub("command", cmdCallback) {

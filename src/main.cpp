@@ -7,7 +7,7 @@
 #include "SerialHelper.hh"
 
 /** Prototypes */
-void cmdCallback(const owi_msgs::position_cmd& cmd);
+void cmdCallback(const owi::position_cmd& cmd);
 void task_ROS(void *pvParams);
 void task_Serial(void *pvParams);
 void task_actuate(void *pvParams);
@@ -25,14 +25,14 @@ JOINT joint[5] = {JOINT(joint0conf),
 void setup() {
     adnoserial.begin(9600);
     rosserial.init(115200);
-    //xTaskCreate(&task_ROS, "ROS", 512, NULL, 0, NULL);
+    xTaskCreate(&task_ROS, "ROS", 512, NULL, 0, NULL);
     xTaskCreate(&task_Serial, "MENU", 512, NULL, 0, NULL);
-    //xTaskCreate(&task_actuate, "ACTUATE", 512, NULL, 0, NULL);
+    xTaskCreate(&task_actuate, "ACTUATE", 512, NULL, 1, NULL);
 }
 
 // Callback for ROS whenever a new command is received
 // Update joints target angles
-void cmdCallback(const owi_msgs::position_cmd& cmd) {
+void cmdCallback(const owi::position_cmd& cmd) {
     if (!ROSctrl) return;
 
     adnoserial.println("Received a command");
@@ -105,6 +105,7 @@ void task_Serial(void *pvParams) {
 
         case 2: //start ros node mode
             ROSctrl = true;
+            vTaskSuspend(NULL);
             break;
 
         default:
@@ -116,12 +117,15 @@ void task_Serial(void *pvParams) {
 
 // Handle actuation of joints
 void task_actuate(void *pvParams) {
+    while(!ROSctrl) {
+        vTaskDelay(100);
+    }
+
     while(true) {
-        if (!ROSctrl) continue;
         for (int i = 0; i < 4; i++) {
             joint[i].actuate();
         } 
-        vTaskDelay(0);
+        vTaskDelay(1);
     }
 }
 

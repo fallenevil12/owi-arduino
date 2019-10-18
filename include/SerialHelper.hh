@@ -3,8 +3,8 @@
 
 #include <ros.h>
 #include <std_msgs/String.h>
-#include <owi_msgs/joint_state.h>
-#include <owi_msgs/position_cmd.h>
+#include <owi/joint_state.h>
+#include <owi/position_cmd.h>
 #include "motor.hh"
 
 #define adnoserial Serial
@@ -46,7 +46,7 @@ int displayMenu(const char* menu, int numOfChoice);
  */
 class ROSSERIAL {
 public:
-    ROSSERIAL(void(*cmdCallback)(const owi_msgs::position_cmd&));
+    ROSSERIAL(void(*cmdCallback)(const owi::position_cmd&));
     void init(long baud);
     void pushMsg(const char *message);
     void pushState(float *jointAngle, int numOfJoint);
@@ -54,11 +54,11 @@ public:
 protected:
     static ros::NodeHandle node;
     std_msgs::String msg;
-    owi_msgs::joint_state state;
-    owi_msgs::position_cmd cmd;
+    owi::joint_state state;
+    owi::position_cmd cmd;
     ros::Publisher msgPub;
     ros::Publisher statePub;
-    ros::Subscriber<owi_msgs::position_cmd> cmdSub;
+    ros::Subscriber<owi::position_cmd> cmdSub;
 }; //class ROSSERIAL
 
 #endif //SERIALHELPER_HH
