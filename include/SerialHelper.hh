@@ -42,23 +42,60 @@ int displayMenu(const char* menu, int numOfChoice);
 
 /**
  * initilization and helper methods of a rosnode,
- * publisher, subscriber through serial1
+ * publisher, subscriber through Serial1
  */
 class ROSSERIAL {
 public:
+    /** 
+     * constructor
+     * @param cmdCallback callback for command subscriber
+     */
     ROSSERIAL(void(*cmdCallback)(const owi::position_cmd&));
+
+    /** 
+     * init roshandle and topics
+     * @param baud rate
+     */
     void init(long baud);
+
+    /** 
+     * load message to be pushed to message topic 
+     * @param message message string to be sent
+     */
     void pushMsg(const char *message);
+
+    /** 
+     * load message to be pushed to command topic 
+     * @param jointAngle array of angle position
+     * @param numOfJoint number of joints position
+     */
     void pushState(float *jointAngle, int numOfJoint);
+
+    /** push and pull all ROS messages loaded */
     void update();
+
 protected:
+    /** ROS node */
     static ros::NodeHandle node;
+    
+    /** chatter message */
     std_msgs::String msg;
+ 
+    /** joints position state message */
     owi::joint_state state;
+
+    /** joints position command message */
     owi::position_cmd cmd;
+
+    /** message publisher */
     ros::Publisher msgPub;
+    
+    /** state publisher */
     ros::Publisher statePub;
+
+    /** command subscriber */
     ros::Subscriber<owi::position_cmd> cmdSub;
+
 }; //class ROSSERIAL
 
 #endif //SERIALHELPER_HH

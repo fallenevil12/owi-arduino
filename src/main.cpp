@@ -6,22 +6,27 @@
 #include "jointconfig.hh"
 #include "SerialHelper.hh"
 
-/** Prototypes */
+/////////////////// Prototypes //////////////////
+
+/** Callback for ROS whenever a new command is received. Handle updating target angle */
 void cmdCallback(const owi::position_cmd& cmd);
+/** Handle ROS communication */
 void task_ROS(void *pvParams);
+/** Handle serial communication */
 void task_Serial(void *pvParams);
+/** Handle actuation of joints */
 void task_actuate(void *pvParams);
 
-/** Globals */
+///////////////////// Globals ///////////////////
 ROSSERIAL rosserial(&cmdCallback);
-volatile bool ROSctrl = false; //TODO: use semaphore
+volatile bool ROSctrl = false; //TODO: use semaphore instead
 JOINT joint[5] = {JOINT(joint0conf),
                   JOINT(joint1conf),
                   JOINT(joint2conf),
                   JOINT(joint3conf),
                   JOINT(joint4conf) };
 
-/** Setup */
+///////////////////// Setup //////////////////////
 void setup() {
     adnoserial.begin(9600);
     rosserial.init(115200);
@@ -30,8 +35,8 @@ void setup() {
     xTaskCreate(&task_actuate, "ACTUATE", 512, NULL, 1, NULL);
 }
 
-// Callback for ROS whenever a new command is received
-// Update joints target angles
+
+/////////////////////// Tasks //////////////////////
 void cmdCallback(const owi::position_cmd& cmd) {
     if (!ROSctrl) return;
 
@@ -42,10 +47,6 @@ void cmdCallback(const owi::position_cmd& cmd) {
     }
 }
 
-/**
- * Handle ROS communication
- * the suscriber requires this task to use a high frequency to not miss receving message
- */
 void task_ROS(void *pvParams) {
     TickType_t xLastWakeTime = xTaskGetTickCount();
     TickType_t elapsed = 0;
@@ -66,7 +67,6 @@ void task_ROS(void *pvParams) {
     }
 }
 
-// Handle serial communication
 void task_Serial(void *pvParams) {
     static char menu[] = "\nTo start the ROS node open a terminal and run command:\n"
                          "rosrun rosserial_python serial_node.py /dev/ttyUSB0"
@@ -114,11 +114,9 @@ void task_Serial(void *pvParams) {
     }
 }
 
-
-// Handle actuation of joints
 void task_actuate(void *pvParams) {
     while(!ROSctrl) {
-        vTaskDelay(100);
+        vTaskDelay(1000);
     }
 
     while(true) {

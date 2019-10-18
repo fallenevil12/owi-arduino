@@ -5,6 +5,7 @@
 #include <HardwareSerial.h>
 #include "ros/node_handle.h"
 
+/** abstraction for use by ROS serial */
 class ArduinoHardware {
   public:
     ArduinoHardware() {
@@ -43,6 +44,7 @@ class ArduinoHardware {
     long baud_;
 };
 
+/** ROSserial handle abstraction */
 namespace ros {
   typedef NodeHandle_<ArduinoHardware,25,25,512,512> NodeHandle;
 }
