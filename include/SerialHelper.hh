@@ -7,7 +7,6 @@
 #include <owi/position_cmd.h>
 #include "motor.hh"
 
-#define adnoserial Serial
 
 /**
  * Struct to store parametters for openloop motor control

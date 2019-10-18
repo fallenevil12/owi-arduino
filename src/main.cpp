@@ -28,7 +28,7 @@ JOINT joint[5] = {JOINT(joint0conf),
 
 ///////////////////// Setup //////////////////////
 void setup() {
-    adnoserial.begin(9600);
+    Serial.begin(9600);
     rosserial.init(115200);
     xTaskCreate(&task_ROS, "ROS", 512, NULL, 0, NULL);
     xTaskCreate(&task_Serial, "MENU", 512, NULL, 0, NULL);
@@ -40,30 +40,25 @@ void setup() {
 void cmdCallback(const owi::position_cmd& cmd) {
     if (!ROSctrl) return;
 
-    adnoserial.println("Received a command");
+    Serial.println("Received a command");
     for (int i = 0; i < 5; i++) {
-        adnoserial.println(cmd.position[i]);
+        //Serial.println(cmd.position[i]);
         joint[i].setTarget(cmd.position[i]);
     }
 }
 
 void task_ROS(void *pvParams) {
     TickType_t xLastWakeTime = xTaskGetTickCount();
-    TickType_t elapsed = 0;
     while(true) {
-        elapsed++;
-        if (elapsed == 10) {
-            elapsed = 0;
-            rosserial.pushMsg("Hello");
-            float angle[] = {joint[0].getAngle(),
-                             joint[1].getAngle(),
-                             joint[2].getAngle(),
-                             joint[3].getAngle(),
-                             joint[4].getAngle()};
-            rosserial.pushState(angle, 5);
-        }
+        rosserial.pushMsg("Hello");
+        float angle[] = {joint[0].getAngle(),
+                            joint[1].getAngle(),
+                            joint[2].getAngle(),
+                            joint[3].getAngle(),
+                            joint[4].getAngle()};
+        rosserial.pushState(angle, 5);
         rosserial.update();
-        vTaskDelayUntil(&xLastWakeTime, 1);
+        vTaskDelayUntil(&xLastWakeTime, 10);
     }
 }
 
@@ -83,15 +78,15 @@ void task_Serial(void *pvParams) {
             {
             int i = displayMenu("\nEnter joint index\n",5);
             if (joint[i].test_step_pos()) {
-                adnoserial.println("Positive direction test PASSED");
+                Serial.println("Positive direction test PASSED");
             } else {
-                adnoserial.println("Positive direction test FAILED");
+                Serial.println("Positive direction test FAILED");
             }
 
             if (joint[i].test_step_neg()) {
-                adnoserial.println("Negative direction test PASSED");
+                Serial.println("Negative direction test PASSED");
             } else {
-                adnoserial.println("Negative direction test FAILED");
+                Serial.println("Negative direction test FAILED");
             }
             }
             break;
@@ -116,14 +111,15 @@ void task_Serial(void *pvParams) {
 
 void task_actuate(void *pvParams) {
     while(!ROSctrl) {
-        vTaskDelay(1000);
+        vTaskDelay(100);
     }
 
+    TickType_t xLastWakeTime = xTaskGetTickCount();
     while(true) {
         for (int i = 0; i < 4; i++) {
             joint[i].actuate();
         } 
-        vTaskDelay(1);
+        vTaskDelayUntil(&xLastWakeTime, 1);
     }
 }
 

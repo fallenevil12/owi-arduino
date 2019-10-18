@@ -26,10 +26,10 @@ float JOINT::getAngle() {
 
     if (angle < safemin || angle > safemax) {
         halt();
-        // char buffer[100];
-        // sprintf(buffer, "\n!!!Critical: Joint angle (%d) out of safety bound. Operation halted.\n", static_cast<int>(angle));
-        // adnoserial.println(buffer);
-        // while(1);
+        char buffer[100];
+        sprintf(buffer, "\n!!!Critical: Joint angle (%d) out of safety bound. Operation halted.\n", static_cast<int>(angle));
+        Serial.println(buffer);
+        while(1);
     }
 
     return angle;
@@ -45,9 +45,9 @@ bool JOINT::actuate() {
 
     if (target < safemin + 5 || target > safemax - 5) {
         halt();
-        //char buffer[100];
-        //sprintf(buffer, "\n!!!Warning: Target %d out of safety bound. Halt movement!\n", static_cast<int>(target));
-        //adnoserial.println(buffer);
+        char buffer[100];
+        sprintf(buffer, "\n!!!Warning: Target %d out of safety bound. Halt movement!\n", static_cast<int>(target));
+        Serial.println(buffer);
         return true;
     }
 
@@ -93,15 +93,15 @@ bool JOINT::test_step_neg() {
 
 void JOINT::pid_test() {
     char buffer[100];
-    sprintf(buffer, "Enter target angle degree (%d to %d)", static_cast<int>(safemin), static_cast<int>(safemax));
+    sprintf(buffer, "Enter target angle degree (%d to %d)", static_cast<int>(safemin+5), static_cast<int>(safemax-5));
 
     do {
-        adnoserial.println(buffer);
+        Serial.println(buffer);
         target = getInt();
     } while (target < safemin || target > safemax);
 
     while (!actuate()) {
-        adnoserial.println(angle);
+        Serial.println(angle);
     }
 }
 

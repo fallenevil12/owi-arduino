@@ -44,30 +44,30 @@ oLoopCtrl getCtrInput() {
     
     int number = -1;
     while (number < 0 || number > 4) {
-        adnoserial.print("\nEnter joint index\n");
+        Serial.print("\nEnter joint index\n");
         number = getInt();
     }
     recv.i = number;
 
     char dir = ' ';
     while (dir != 'r' && dir !='l') {
-        adnoserial.print("\nEnter direction (l/r)\n");
-        while(!adnoserial.available()) vTaskDelay(100/portTICK_PERIOD_MS);
-        dir = adnoserial.read();
+        Serial.print("\nEnter direction (l/r)\n");
+        while(!Serial.available()) vTaskDelay(100/portTICK_PERIOD_MS);
+        dir = Serial.read();
     }
     (dir == 'r') ? (recv.direction = MOTOR::dir::CW) : 
                    (recv.direction = MOTOR::dir::CCW);
 
     number = -1;
     while (number < 0 || number > 255) {
-        adnoserial.print("\nEnter power (0-255)\n");
+        Serial.print("\nEnter power (0-255)\n");
         number = getInt();
     }
     recv.pwm = number;
 
     number = -1;
     while (number < 0) {
-        adnoserial.print("\nEnter duration (ms)\n");
+        Serial.print("\nEnter duration (ms)\n");
         number = getInt();
     }
     recv.duration = number;
@@ -79,16 +79,16 @@ oLoopCtrl getCtrInput() {
 int getInt() {
     char buffer[10];
 
-    while(!adnoserial.available()) vTaskDelay(100/portTICK_PERIOD_MS);
-    int length = adnoserial.readBytesUntil('\n', buffer, 10);
+    while(!Serial.available()) vTaskDelay(100/portTICK_PERIOD_MS);
+    int length = Serial.readBytesUntil('\n', buffer, 10);
     buffer[length] = '\0';      //terminate received string
     int number = atoi(buffer);
-    adnoserial.println(number);
+    Serial.println(number);
     return number;
 }
 
 int displayMenu(const char* menu, int numOfChoices) {
-    adnoserial.print(menu);
+    Serial.print(menu);
     int choice = -1;
     do {
         choice = getInt();
