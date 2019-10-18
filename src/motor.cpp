@@ -1,9 +1,7 @@
 #include "Arduino.h"
 #include "motor.hh"
 
-MOTOR::MOTOR() {
-
-}
+MOTOR::MOTOR() {}
 
 void MOTOR::update(dir direction, uint8_t power) {
     setDirection(direction);

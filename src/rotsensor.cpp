@@ -2,9 +2,7 @@
 #include "rotsensor.hh"
 
 POTENTIO::POTENTIO(uint8_t _pin, unsigned bits, float range, float _scale):
-    pin(_pin), res(range/pow(2,bits)), scale(_scale) {
-        degree = analogRead(pin) * res * scale;
-    }
+    pin(_pin), res(range/pow(2,bits)), scale(_scale) {}
 
 int POTENTIO::getRawVal() {
     //averaging filter
@@ -26,7 +24,12 @@ float POTENTIO::getDegreeVal() {
     getVoltVal();
     // low pass filter
     static const float coef = 0.5;
-    degree = coef*degree + (1.0 - coef)*(volt * scale);
+    if (firstpass) {
+        degree = volt*scale;
+        firstpass = false;
+    } else {
+        degree = coef*degree + (1.0 - coef)*(volt * scale);
+    }
 
     return degree;
 }

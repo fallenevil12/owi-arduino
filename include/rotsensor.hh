@@ -39,6 +39,7 @@ private:
     const float res;
     float volt{0.0};
     float scale;
+    bool firstpass = true;
 
 }; //class POTENTIO
 

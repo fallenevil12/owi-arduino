@@ -29,7 +29,7 @@ float JOINT::getAngle() {
         char buffer[100];
         sprintf(buffer, "\n!!!Critical: Joint angle (%d) out of safety bound. Operation halted.\n", static_cast<int>(angle));
         Serial.println(buffer);
-        while(1);
+         while(1);
     }
 
     return angle;
