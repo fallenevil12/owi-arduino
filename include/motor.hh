@@ -15,8 +15,8 @@ public:
      * CCW - counter clockwise
     */
     enum class dir {
-        CW = 0,
-        CCW = 1
+        pos = 0,
+        neg = 1
     };
 
     /**
@@ -43,7 +43,7 @@ public:
 protected:
 
     /** rotation direction */
-    dir Dir{dir::CW};
+    dir Dir{dir::pos};
 
     /** duty cycle (0-255) */
     uint8_t pwm{0};

@@ -63,9 +63,7 @@ void task_ROS(void *pvParams) {
 }
 
 void task_Serial(void *pvParams) {
-    static char menu[] = "\nTo start the ROS node open a terminal and run command:\n"
-                         "rosrun rosserial_python serial_node.py /dev/ttyUSB0"
-                         "\n=======================================\n" 
+    static char menu[] = "\n=======================================\n" 
                          "0 - Peform initial joint direction test\n"
                          "1 - Perform pid movement test\n"
                          "2 - Pass control to ROS\n";

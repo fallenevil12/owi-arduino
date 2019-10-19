@@ -29,12 +29,12 @@ void L298N::setDuration(long duration) {
 
 void L298N::output() {
     switch (Dir) {
-        case dir::CW:
+        case dir::pos:
             digitalWrite(in1P, 0);
             digitalWrite(in2P, 1);
             break;
 
-        case dir::CCW:
+        case dir::neg:
             digitalWrite(in1P, 1);
             digitalWrite(in2P, 0);
             break;
@@ -52,10 +52,10 @@ void L298N::output() {
 }
 
 void L298N::reverse() {
-    if (Dir == dir::CW) {
-        Dir = dir::CCW;
+    if (Dir == dir::pos) {
+        Dir = dir::neg;
     } else {
-        Dir = dir::CW;
+        Dir = dir::pos;
     }
 
     output();

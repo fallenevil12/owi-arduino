@@ -29,7 +29,7 @@ float JOINT::getAngle() {
         char buffer[100];
         sprintf(buffer, "\n!!!Critical: Joint angle (%d) out of safety bound. Operation halted.\n", static_cast<int>(angle));
         Serial.println(buffer);
-         while(1);
+        while(1);
     }
 
     return angle;
@@ -55,9 +55,9 @@ bool JOINT::actuate() {
 
     if (k < 0) {
         k = fabs(k);
-        driver.setDirection(MOTOR::dir::CW);
+        driver.setDirection(MOTOR::dir::pos);
     } else {
-        driver.setDirection(MOTOR::dir::CCW);
+        driver.setDirection(MOTOR::dir::neg);
     }
     driver.setDuration(-1);
     driver.setPower(k*MAXPWM);
@@ -69,7 +69,7 @@ bool JOINT::actuate() {
 
 bool JOINT::test_step_pos() {
     int angle = pot.getDegreeVal();
-    driver.setDirection(MOTOR::dir::CW);
+    driver.setDirection(MOTOR::dir::pos);
     driver.setDuration(500);
     driver.setPower(200);
     driver.output();
@@ -81,7 +81,7 @@ bool JOINT::test_step_pos() {
 
 bool JOINT::test_step_neg() {
     int angle = pot.getDegreeVal();
-    driver.setDirection(MOTOR::dir::CCW);
+    driver.setDirection(MOTOR::dir::neg);
     driver.setDuration(500);
     driver.setPower(200);
     driver.output();
