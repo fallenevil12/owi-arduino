@@ -44,6 +44,7 @@ public:
 
     /** 
      * get joint angle value in degree, according to D-H convention
+     * also handle safety check
      */
     float getAngle();
 

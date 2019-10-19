@@ -121,7 +121,7 @@ void task_actuate(void *pvParams) {
         for (int i = 0; i < 4; i++) {
             joint[i].actuate();
         } 
-        vTaskDelayUntil(&xLastWakeTime, 1);
+        vTaskDelayUntil(&xLastWakeTime, 5);
     }
 }
 
