@@ -9,7 +9,7 @@
 ros::NodeHandle ROSSERIAL::node;
 
 ROSSERIAL::ROSSERIAL(void(*cmdCallback)(const owi::position_cmd&)):
-    msgPub("message", &msg),
+    msgPub("message", &msg,),
     statePub("joint_state", &state),
     cmdSub("command", cmdCallback) {
 }
@@ -22,12 +22,12 @@ void ROSSERIAL::init(long baud) {
     node.subscribe(cmdSub);
 }
 
-void ROSSERIAL::pushMsg(const char *message) {
+void ROSSERIAL::putMsg(const char *message) {
     msg.data = message;
     msgPub.publish(&msg);
 }
 
-void ROSSERIAL::pushState(float *jointAngle, int numOfJoint) {
+void ROSSERIAL::putState(float *jointAngle, int numOfJoint) {
     //state.position_length = numOfJoint;
     for (int i = 0; i < numOfJoint; i++) {
         state.position[i] = jointAngle[i];

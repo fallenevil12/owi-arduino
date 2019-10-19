@@ -61,14 +61,14 @@ public:
      * load message to be pushed to message topic 
      * @param message message string to be sent
      */
-    void pushMsg(const char *message);
+    void putMsg(const char *message);
 
     /** 
      * load message to be pushed to command topic 
      * @param jointAngle array of angle position
      * @param numOfJoint number of joints position
      */
-    void pushState(float *jointAngle, int numOfJoint);
+    void putState(float *jointAngle, int numOfJoint);
 
     /** push and pull all ROS messages loaded */
     void update();

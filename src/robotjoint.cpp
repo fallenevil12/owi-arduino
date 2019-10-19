@@ -62,7 +62,7 @@ bool JOINT::actuate() {
     driver.setDuration(-1);
     driver.setPower(k*MAXPWM);
     driver.output();
-    
+
     if (k == 0.0) return true; // expecting 0.0 value that pidCal would return if reached setpoint
     else return false;
 }

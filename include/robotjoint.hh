@@ -81,21 +81,21 @@ public:
 
 private:
 
-    /* motor driver */
+    /** motor driver */
     L298N driver;
-    /* potentiometer driver */
+    /** potentiometer driver */
     POTENTIO pot;
-    /* pid */
+    /** pid */
     PID pid;
-    /* position of 0 degree (D-H convention) relative to raw angle  */
+    /** position of 0 degree (D-H convention) relative to raw angle  */
     float offset;
-    /* operating angle lower bound */
+    /** operating angle lower bound */
     float safemin;
-    /* operating angle upper bound */
+    /** operating angle upper bound */
     float safemax;
-    /* corresponding link angle */
+    /** corresponding link angle */
     float angle;
-    /* target angle */
+    /** target angle */
     float target;
 
 }; //class JOINT
