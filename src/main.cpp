@@ -30,6 +30,8 @@ JOINT joint[5] = {JOINT(joint0conf),
 
 ///////////////////// Setup //////////////////////
 void setup() {
+    set_sleep_mode(SLEEP_MODE_IDLE);
+    sleep_enable();
     Serial.begin(9600);
     rosserial.init(115200);
     xTaskCreate(&task_ROS, "ROS", 512, NULL, 0, NULL);
@@ -124,10 +126,6 @@ void task_actuate(void *pvParams) {
 }
 
 /** Idle task */
-void loop() {    
-    set_sleep_mode(SLEEP_MODE_IDLE);
-    portENTER_CRITICAL();
-    sleep_enable();
-    portEXIT_CRITICAL();
+void loop() {
     sleep_cpu();
 }
