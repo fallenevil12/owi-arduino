@@ -11,12 +11,12 @@ public:
 
     /** 
      * direction of movement, implementation defined
-     * CW - clockwise
-     * CCW - counter clockwise
+     * POS - positive direction
+     * NEG - negative direction
     */
-    enum class dir {
-        pos = 0,
-        neg = 1
+    enum class DIR {
+        POS,
+        NEG
     };
 
     /**
@@ -27,7 +27,7 @@ public:
     /**
      * new control parametters 
      */
-    void update(dir direction, uint8_t power);
+    void update(DIR direction, uint8_t power);
 
     /**
      *  perform the motion
@@ -35,7 +35,7 @@ public:
     virtual void output() = 0;
 
     /** set rotational direction */
-    void setDirection(dir direction);
+    void setDirection(DIR direction);
 
     /** set duty cycle */
     void setPower(uint8_t power);
@@ -43,7 +43,7 @@ public:
 protected:
 
     /** rotation direction */
-    dir Dir{dir::pos};
+    DIR dir{DIR::POS};
 
     /** duty cycle (0-255) */
     uint8_t pwm{0};

@@ -3,13 +3,13 @@
 
 MOTOR::MOTOR() {}
 
-void MOTOR::update(dir direction, uint8_t power) {
+void MOTOR::update(DIR direction, uint8_t power) {
     setDirection(direction);
     setPower(power);
 }
 
-void MOTOR::setDirection(dir direction) {
-    Dir = direction;
+void MOTOR::setDirection(DIR direction) {
+    dir = direction;
 }
 
 void MOTOR::setPower(uint8_t power) {
@@ -28,13 +28,13 @@ void L298N::setDuration(long duration) {
 }
 
 void L298N::output() {
-    switch (Dir) {
-        case dir::pos:
+    switch (dir) {
+        case DIR::POS:
             digitalWrite(in1P, 0);
             digitalWrite(in2P, 1);
             break;
 
-        case dir::neg:
+        case DIR::NEG:
             digitalWrite(in1P, 1);
             digitalWrite(in2P, 0);
             break;
@@ -52,10 +52,10 @@ void L298N::output() {
 }
 
 void L298N::reverse() {
-    if (Dir == dir::pos) {
-        Dir = dir::neg;
+    if (dir == DIR::POS) {
+        dir = DIR::NEG;
     } else {
-        Dir = dir::pos;
+        dir = DIR::POS;
     }
 
     output();

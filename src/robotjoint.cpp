@@ -55,9 +55,9 @@ bool JOINT::actuate() {
 
     if (k < 0) {
         k = fabs(k);
-        driver.setDirection(MOTOR::dir::pos);
+        driver.setDirection(MOTOR::DIR::POS);
     } else {
-        driver.setDirection(MOTOR::dir::neg);
+        driver.setDirection(MOTOR::DIR::NEG);
     }
     driver.setDuration(-1);
     driver.setPower(k*MAXPWM);
@@ -69,7 +69,7 @@ bool JOINT::actuate() {
 
 bool JOINT::test_step_pos() {
     int angle = pot.getDegreeVal();
-    driver.setDirection(MOTOR::dir::pos);
+    driver.setDirection(MOTOR::DIR::POS);
     driver.setDuration(500);
     driver.setPower(200);
     driver.output();
@@ -81,7 +81,7 @@ bool JOINT::test_step_pos() {
 
 bool JOINT::test_step_neg() {
     int angle = pot.getDegreeVal();
-    driver.setDirection(MOTOR::dir::neg);
+    driver.setDirection(MOTOR::DIR::NEG);
     driver.setDuration(500);
     driver.setPower(200);
     driver.output();

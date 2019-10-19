@@ -55,8 +55,8 @@ oLoopCtrl getCtrInput() {
         while(!Serial.available()) vTaskDelay(100/portTICK_PERIOD_MS);
         dir = Serial.read();
     }
-    (dir == 'r') ? (recv.direction = MOTOR::dir::pos) : 
-                   (recv.direction = MOTOR::dir::neg);
+    (dir == 'r') ? (recv.direction = MOTOR::DIR::POS) : 
+                   (recv.direction = MOTOR::DIR::NEG);
 
     number = -1;
     while (number < 0 || number > 255) {

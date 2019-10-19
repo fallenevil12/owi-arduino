@@ -13,7 +13,7 @@
  */
 struct oLoopCtrl {
     unsigned i;
-    MOTOR::dir direction;
+    MOTOR::DIR direction;
     unsigned pwm;
     unsigned long duration;
 };

@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <avr/sleep.h>
 #include <Arduino_FreeRTOS.h>
 #include <timers.h>
 #include "ros.h"
@@ -122,5 +123,11 @@ void task_actuate(void *pvParams) {
     }
 }
 
-// Not used for RTOS
-void loop() {}
+/** Idle task */
+void loop() {    
+    set_sleep_mode(SLEEP_MODE_IDLE);
+    portENTER_CRITICAL();
+    sleep_enable();
+    portEXIT_CRITICAL();
+    sleep_cpu();
+}

@@ -98,6 +98,7 @@ private:
     /** target angle */
     float target;
 
+
 }; //class JOINT
 
 
