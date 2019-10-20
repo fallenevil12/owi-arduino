@@ -24,12 +24,11 @@ void JOINT::setTarget(float targetAngle) {
 float JOINT::getAngle() {
     angle = pot.getDegreeVal() - offset;
 
-    if (angle < safemin || angle > safemax) {
+    if (angle <= safemin || angle >= safemax) {
         halt();
         char buffer[100];
         sprintf(buffer, "\n!!!Critical: Joint angle (%d) out of safety bound. Operation halted.\n", static_cast<int>(angle));
         Serial.println(buffer);
-        while(1);
     }
 
     return angle;
@@ -43,7 +42,7 @@ void JOINT::halt() {
 bool JOINT::actuate() {
     getAngle();
 
-    if (target < safemin + 5 || target > safemax - 5) {
+    if (target <= safemin + 5 || target >= safemax - 5) {
         halt();
         char buffer[100];
         sprintf(buffer, "\n!!!Warning: Target %d out of safety bound. Halt movement!\n", static_cast<int>(target));
