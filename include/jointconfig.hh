@@ -9,7 +9,7 @@ JOINT::CONFIG joint0conf {
     .dirPin1 = 25,
     .dirPin2 = 23,
     .potPin = A0,
-    .degOffset = 130.0,
+    .degOffset = 150.0,
     .degMin = -90.0,
     .degMax = 90.0,
     .pid = PID(0.08, 0.0002, 0.2)
