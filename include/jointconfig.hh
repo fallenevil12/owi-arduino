@@ -6,8 +6,8 @@
 
 JOINT::CONFIG joint0conf {
     .enPin = 2,
-    .dirPin1 = 23,
-    .dirPin2 = 25,
+    .dirPin1 = 25,
+    .dirPin2 = 23,
     .potPin = A0,
     .degOffset = 130.0,
     .degMin = -90.0,
