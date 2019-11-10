@@ -44,7 +44,7 @@ JOINT::CONFIG joint3conf {
     .degOffset = 130.0, //TODO: joint 3 has different gear ratio
     .degMin = -125.0,
     .degMax = 125.0,
-    .pid = PID(0.015, 0.0001, 0.1)
+    .pid = PID(0.02, 0.000, 0.0)
 };
 
     JOINT::CONFIG joint4conf {
@@ -55,7 +55,7 @@ JOINT::CONFIG joint3conf {
     .degOffset = 130.0,
     .degMin = -40.0,
     .degMax = 50.0,
-    .pid = PID(0.05, 0.0002, 0.9)
+    .pid = PID(0.03, 0.0001, 0.05)
 };
 
 #endif //JOINTCONFIG_HH

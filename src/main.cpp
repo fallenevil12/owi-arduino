@@ -118,7 +118,7 @@ void task_actuate(void *pvParams) {
 
     TickType_t xLastWakeTime = xTaskGetTickCount();
     while(true) {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             joint[i].actuate();
         } 
         vTaskDelayUntil(&xLastWakeTime, 5);
