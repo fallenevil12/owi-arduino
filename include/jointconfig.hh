@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include "robotjoint.hh"
 
+/** configuration for joint 0 */
 JOINT::CONFIG joint0conf {
     .enPin = 2,
     .dirPin1 = 25,
@@ -16,6 +17,7 @@ JOINT::CONFIG joint0conf {
     .pid = PID(0.08, 0.0002, 0.2)
 };
 
+/** configuration for joint 1 */
 JOINT::CONFIG joint1conf {
     .enPin = 3,
     .dirPin1 = 29,
@@ -28,6 +30,7 @@ JOINT::CONFIG joint1conf {
     .pid = PID(0.08, 0.0002, 0.2)
 };
 
+/** configuration for joint 2 */
 JOINT::CONFIG joint2conf {
     .enPin = 4,
     .dirPin1 = 33,
@@ -39,6 +42,8 @@ JOINT::CONFIG joint2conf {
     .degMax = 120.0,
     .pid = PID(0.08, 0.0002, 0.2)
 };
+
+/** configuration for joint 3 */
 JOINT::CONFIG joint3conf {
     .enPin = 5,
     .dirPin1 = 35,
@@ -51,7 +56,8 @@ JOINT::CONFIG joint3conf {
     .pid = PID(0.1, 0.0002, 0.2)
 };
 
-    JOINT::CONFIG joint4conf {
+/** configuration for joint 4 */
+JOINT::CONFIG joint4conf {
     .enPin = 6,
     .dirPin1 = 39,
     .dirPin2 = 41,

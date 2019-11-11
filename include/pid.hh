@@ -1,10 +1,13 @@
 #ifndef PID_HH
 #define PID_HH
 
+/** Versatile PID control class */
 class PID {
-public:    
+public:
     PID(float kp, float ki, float kd);
-    void setGain(float kp, float ki, float kd);
+
+    void setCoef(float kp, float ki, float kd);
+
     float pidCal(float val, float refVal);
 
 private:

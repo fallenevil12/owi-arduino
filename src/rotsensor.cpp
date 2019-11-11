@@ -24,6 +24,7 @@ float POTENTIO::getVoltVal() {
 float POTENTIO::getDegreeVal() {
     getVoltVal();
     // low pass filter
+    static bool firstpass = true;
     static const float coef = 0.5;
     if (firstpass) {
         degree = volt*scale;
@@ -33,8 +34,4 @@ float POTENTIO::getDegreeVal() {
     }
 
     return degree;
-}
-
-void POTENTIO::setScale(float _scale) {
-    scale = _scale;
 }

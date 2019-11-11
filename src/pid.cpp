@@ -6,7 +6,7 @@
 PID::PID(float _kp, float _ki, float _kd):
     kp(_kp), ki(_ki), kd(_kd) {}
 
-void PID::setGain(float _kp, float _ki, float _kd) {
+void PID::setCoef(float _kp, float _ki, float _kd) {
     kp = _kp;
     ki = _ki;
     kd = _kd;
