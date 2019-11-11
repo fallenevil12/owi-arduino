@@ -21,8 +21,16 @@ public:
         uint8_t dirPin2;
         /** analog in pin */
         uint8_t potPin;
-        /** angle of defined 0 degree (D-H convention) relative to raw angle */
+        /** joint_angle = sensor_angle - degOffset 
+         * use D-H convention to determine 0 deg joint angle, then offset
+         * equal sensor angle reading at that position.
+        */
         float degOffset;
+        /** 
+         * joint_angle = sensor_angle/ratio 
+         * all joint are 1:1 exept for joint 3
+        */
+        float ratio;
         /** safe min angle */
         float degMin;
         /** safe max anle */
@@ -88,8 +96,17 @@ private:
     POTENTIO pot;
     /** pid */
     PID pid;
-    /** position of 0 degree (D-H convention) relative to raw angle  */
+    /** 
+     * joint_angle = sensor_angle - degOffset 
+     * use D-H convention to determine 0 deg joint angle, then offset
+     * equal sensor angle reading at that position.
+    */
     float offset;
+    /** 
+     * joint_angle = sensor_angle/ratio 
+     * all joints are 1:1 except for joint 3
+    */
+    float ratio;
     /** operating angle lower bound */
     float safemin;
     /** operating angle upper bound */

@@ -13,6 +13,7 @@ JOINT::JOINT(CONFIG config):
     pot(config.potPin, ANALOG_BITS, ANALOG_RANGE, VOLT2DEG_SCALE),
     pid(config.pid),
     offset(config.degOffset),
+    ratio(config.ratio),
     safemin(config.degMin),
     safemax(config.degMax),
     target((safemin + safemax)/2) {}
@@ -22,7 +23,7 @@ void JOINT::setTarget(float targetAngle) {
 }
 
 float JOINT::getAngle() {
-    angle = pot.getDegreeVal() - offset;
+    angle = (pot.getDegreeVal() - offset)/ratio;
 
     if (angle <= safemin || angle >= safemax) {
         halt();
