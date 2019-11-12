@@ -1,0 +1,8 @@
+<map id="JOINT::getAngle" name="JOINT::getAngle">
+<area shape="rect" id="node2" href="$class_j_o_i_n_t.html#aeacab1adef2928f9c138f67c52ebca8a" title="JOINT::actuate" alt="" coords="173,56,285,83"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#ac7147b8df2eb0c5aa226905a59ad4b60" title="task_ROS" alt="" coords="349,107,432,133"/>
+<area shape="rect" id="node3" href="$class_j_o_i_n_t.html#ad3dd20dfb6938f3162760bf1080bd210" title="JOINT::pid_test" alt="" coords="333,5,448,32"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#ae72d7ab4bca48d2e7fc6c26e782cb27c" title="task_actuate" alt="" coords="496,56,593,83"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#af550ae983186b39cf0774010ae8a92c0" title="task_Serial" alt="" coords="501,5,588,32"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="641,56,696,83"/>
+</map>

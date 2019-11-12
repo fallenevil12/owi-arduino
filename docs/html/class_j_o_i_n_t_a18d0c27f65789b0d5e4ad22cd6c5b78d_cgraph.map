@@ -1,0 +1,5 @@
+<map id="JOINT::halt" name="JOINT::halt">
+<area shape="rect" id="node2" href="$class_l298_n.html#a0006a8d8f42d546d245d79ef79d80820" title="L298N::output" alt="" coords="159,5,263,32"/>
+<area shape="rect" id="node3" href="$class_l298_n.html#a09b4b55e43fdadf87e61456831fafaf2" title="L298N::setDuration" alt="" coords="144,56,279,83"/>
+<area shape="rect" id="node4" href="$class_m_o_t_o_r.html#a2dbcedef9232f317a6ace02c71f15119" title="MOTOR::setPower" alt="" coords="144,107,279,133"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="include/motor.hh" name="include/motor.hh">
+<area shape="rect" id="node2" href="$robotjoint_8hh.html" title="include/robotjoint.hh" alt="" coords="136,155,275,181"/>
+<area shape="rect" id="node6" href="$_serial_helper_8hh.html" title="include/SerialHelper.hh" alt="" coords="243,80,399,107"/>
+<area shape="rect" id="node8" href="$motor_8cpp.html" title="src/motor.cpp" alt="" coords="423,80,526,107"/>
+<area shape="rect" id="node3" href="$jointconfig_8hh.html" title="include/jointconfig.hh" alt="" coords="5,229,149,256"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="138,304,235,331"/>
+<area shape="rect" id="node5" href="$robotjoint_8cpp.html" title="src/robotjoint.cpp" alt="" coords="224,229,347,256"/>
+<area shape="rect" id="node7" href="$_serial_helper_8cpp.html" title="src/SerialHelper.cpp" alt="" coords="422,155,562,181"/>
+</map>
