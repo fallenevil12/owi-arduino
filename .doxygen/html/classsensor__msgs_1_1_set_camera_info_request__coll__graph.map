@@ -1,0 +1,7 @@
+<map id="sensor_msgs::SetCameraInfoRequest" name="sensor_msgs::SetCameraInfoRequest">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="331,5,404,32"/>
+<area shape="rect" id="node3" href="$classsensor__msgs_1_1_camera_info.html" title="sensor_msgs::CameraInfo" alt="" coords="225,184,401,211"/>
+<area shape="rect" id="node4" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="5,95,135,121"/>
+<area shape="rect" id="node6" href="$classsensor__msgs_1_1_region_of_interest.html" title="sensor_msgs::RegionOfInterest" alt="" coords="159,95,365,121"/>
+<area shape="rect" id="node5" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="31,5,109,32"/>
+</map>

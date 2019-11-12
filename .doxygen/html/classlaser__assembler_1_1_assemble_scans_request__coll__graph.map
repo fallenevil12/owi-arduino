@@ -1,0 +1,4 @@
+<map id="laser_assembler::AssembleScansRequest" name="laser_assembler::AssembleScansRequest">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="11,5,84,32"/>
+<area shape="rect" id="node3" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="109,5,186,32"/>
+</map>

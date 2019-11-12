@@ -1,0 +1,8 @@
+<map id="control_msgs::GripperCommandActionGoal" name="control_msgs::GripperCommandActionGoal">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="233,5,306,32"/>
+<area shape="rect" id="node3" href="$classactionlib__msgs_1_1_goal_i_d.html" title="actionlib_msgs::GoalID" alt="" coords="461,95,620,121"/>
+<area shape="rect" id="node5" href="$classcontrol__msgs_1_1_gripper_command_goal.html" title="control_msgs::GripperCommandGoal" alt="" coords="87,184,324,211"/>
+<area shape="rect" id="node6" href="$classcontrol__msgs_1_1_gripper_command.html" title="control_msgs::GripperCommand" alt="" coords="22,95,232,121"/>
+<area shape="rect" id="node7" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="308,95,437,121"/>
+<area shape="rect" id="node4" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="455,5,532,32"/>
+</map>

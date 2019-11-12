@@ -1,0 +1,9 @@
+<map id="geometry_msgs::PoseWithCovarianceStamped" name="geometry_msgs::PoseWithCovarianceStamped">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="103,5,177,32"/>
+<area shape="rect" id="node3" href="$classgeometry__msgs_1_1_pose_with_covariance.html" title="geometry_msgs::PoseWithCovariance" alt="" coords="61,273,307,300"/>
+<area shape="rect" id="node4" href="$classgeometry__msgs_1_1_pose.html" title="geometry_msgs::Pose" alt="" coords="127,184,281,211"/>
+<area shape="rect" id="node5" href="$classgeometry__msgs_1_1_quaternion.html" title="geometry_msgs::Quaternion" alt="" coords="144,95,331,121"/>
+<area shape="rect" id="node6" href="$classgeometry__msgs_1_1_point.html" title="geometry_msgs::Point" alt="" coords="355,95,509,121"/>
+<area shape="rect" id="node7" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="533,95,662,121"/>
+<area shape="rect" id="node8" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="559,5,636,32"/>
+</map>

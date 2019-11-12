@@ -1,0 +1,17 @@
+<map id="control_msgs::PointHeadAction" name="control_msgs::PointHeadAction">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="7,359,81,385"/>
+<area shape="rect" id="node3" href="$classcontrol__msgs_1_1_point_head_action_goal.html" title="control_msgs::PointHeadActionGoal" alt="" coords="1221,409,1455,436"/>
+<area shape="rect" id="node4" href="$classactionlib__msgs_1_1_goal_i_d.html" title="actionlib_msgs::GoalID" alt="" coords="172,741,331,768"/>
+<area shape="rect" id="node6" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="187,499,316,525"/>
+<area shape="rect" id="node7" href="$classcontrol__msgs_1_1_point_head_goal.html" title="control_msgs::PointHeadGoal" alt="" coords="943,156,1139,183"/>
+<area shape="rect" id="node8" href="$classgeometry__msgs_1_1_point_stamped.html" title="geometry_msgs::PointStamped" alt="" coords="605,320,811,347"/>
+<area shape="rect" id="node9" href="$classgeometry__msgs_1_1_point.html" title="geometry_msgs::Point" alt="" coords="175,359,328,385"/>
+<area shape="rect" id="node11" href="$classgeometry__msgs_1_1_vector3.html" title="geometry_msgs::Vector3" alt="" coords="384,75,552,101"/>
+<area shape="rect" id="node12" href="$classcontrol__msgs_1_1_point_head_action_feedback.html" title="control_msgs::PointHeadAction\lFeedback" alt="" coords="937,590,1144,631"/>
+<area shape="rect" id="node13" href="$classcontrol__msgs_1_1_point_head_feedback.html" title="control_msgs::PointHeadFeedback" alt="" coords="355,683,581,709"/>
+<area shape="rect" id="node14" href="$classactionlib__msgs_1_1_goal_status.html" title="actionlib_msgs::GoalStatus" alt="" coords="617,597,799,624"/>
+<area shape="rect" id="node15" href="$classcontrol__msgs_1_1_point_head_action_result.html" title="control_msgs::PointHeadAction\lResult" alt="" coords="937,341,1144,382"/>
+<area shape="rect" id="node16" href="$classcontrol__msgs_1_1_point_head_result.html" title="control_msgs::PointHeadResult" alt="" coords="365,207,571,233"/>
+<area shape="rect" id="node5" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="5,641,83,668"/>
+<area shape="rect" id="node10" href="$classros_1_1_duration.html" title="ros::Duration" alt="" coords="659,105,757,132"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="ros::NodeHandle_&lt; Hardware, MAX_SUBSCRIBERS, MAX_PUBLISHERS, INPUT_SIZE, OUTPUT_SIZE &gt;" name="ros::NodeHandle_&lt; Hardware, MAX_SUBSCRIBERS, MAX_PUBLISHERS, INPUT_SIZE, OUTPUT_SIZE &gt;">
+<area shape="rect" id="node2" href="$classros_1_1_node_handle_base__.html" title="ros::NodeHandleBase_" alt="" coords="5,5,163,32"/>
+<area shape="rect" id="node4" href="$classros_1_1_publisher.html" title="ros::Publisher" alt="" coords="122,95,225,121"/>
+<area shape="rect" id="node3" href="$classros_1_1_subscriber__.html" title="ros::Subscriber_" alt="" coords="249,95,367,121"/>
+<area shape="rect" id="node5" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="187,5,261,32"/>
+</map>

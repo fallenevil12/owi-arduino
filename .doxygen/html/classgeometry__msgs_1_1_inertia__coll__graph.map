@@ -1,0 +1,4 @@
+<map id="geometry_msgs::Inertia" name="geometry_msgs::Inertia">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="43,5,116,32"/>
+<area shape="rect" id="node3" href="$classgeometry__msgs_1_1_vector3.html" title="geometry_msgs::Vector3" alt="" coords="101,81,269,108"/>
+</map>

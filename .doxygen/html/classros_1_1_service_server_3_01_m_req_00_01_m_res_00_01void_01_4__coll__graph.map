@@ -1,0 +1,6 @@
+<map id="ros::ServiceServer&lt; MReq, MRes, void &gt;" name="ros::ServiceServer&lt; MReq, MRes, void &gt;">
+<area shape="rect" id="node2" href="$classros_1_1_subscriber__.html" title="ros::Subscriber_" alt="" coords="5,95,123,121"/>
+<area shape="rect" id="node3" href="$classros_1_1_publisher.html" title="ros::Publisher" alt="" coords="147,95,250,121"/>
+<area shape="rect" id="node4" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="93,5,166,32"/>
+<area shape="rect" id="node5" href="$classros_1_1_node_handle_base__.html" title="ros::NodeHandleBase_" alt="" coords="191,5,348,32"/>
+</map>

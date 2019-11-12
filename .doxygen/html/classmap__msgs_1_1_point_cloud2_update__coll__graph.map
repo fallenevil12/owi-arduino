@@ -1,0 +1,7 @@
+<map id="map_msgs::PointCloud2Update" name="map_msgs::PointCloud2Update">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="151,5,224,32"/>
+<area shape="rect" id="node3" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="264,95,394,121"/>
+<area shape="rect" id="node5" href="$classsensor__msgs_1_1_point_cloud2.html" title="sensor_msgs::PointCloud2" alt="" coords="108,199,286,225"/>
+<area shape="rect" id="node6" href="$classsensor__msgs_1_1_point_field.html" title="sensor_msgs::PointField" alt="" coords="22,95,188,121"/>
+<area shape="rect" id="node4" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="290,5,368,32"/>
+</map>

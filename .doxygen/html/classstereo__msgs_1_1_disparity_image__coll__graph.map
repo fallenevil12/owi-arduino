@@ -1,0 +1,7 @@
+<map id="stereo_msgs::DisparityImage" name="stereo_msgs::DisparityImage">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="221,5,295,32"/>
+<area shape="rect" id="node3" href="$classsensor__msgs_1_1_image.html" title="sensor_msgs::Image" alt="" coords="270,196,414,223"/>
+<area shape="rect" id="node4" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="321,95,451,121"/>
+<area shape="rect" id="node6" href="$classsensor__msgs_1_1_region_of_interest.html" title="sensor_msgs::RegionOfInterest" alt="" coords="5,145,212,172"/>
+<area shape="rect" id="node5" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="347,5,425,32"/>
+</map>

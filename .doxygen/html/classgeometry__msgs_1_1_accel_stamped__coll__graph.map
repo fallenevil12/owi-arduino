@@ -1,0 +1,7 @@
+<map id="geometry_msgs::AccelStamped" name="geometry_msgs::AccelStamped">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="21,5,94,32"/>
+<area shape="rect" id="node3" href="$classgeometry__msgs_1_1_accel.html" title="geometry_msgs::Accel" alt="" coords="34,199,190,225"/>
+<area shape="rect" id="node4" href="$classgeometry__msgs_1_1_vector3.html" title="geometry_msgs::Vector3" alt="" coords="56,95,224,121"/>
+<area shape="rect" id="node5" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="249,95,378,121"/>
+<area shape="rect" id="node6" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="275,5,352,32"/>
+</map>

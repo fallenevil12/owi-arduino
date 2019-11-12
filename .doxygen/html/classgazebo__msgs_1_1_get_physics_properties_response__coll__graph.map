@@ -1,0 +1,5 @@
+<map id="gazebo_msgs::GetPhysicsPropertiesResponse" name="gazebo_msgs::GetPhysicsPropertiesResponse">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="88,5,161,32"/>
+<area shape="rect" id="node3" href="$classgazebo__msgs_1_1_o_d_e_physics.html" title="gazebo_msgs::ODEPhysics" alt="" coords="31,81,218,108"/>
+<area shape="rect" id="node4" href="$classgeometry__msgs_1_1_vector3.html" title="geometry_msgs::Vector3" alt="" coords="242,81,410,108"/>
+</map>

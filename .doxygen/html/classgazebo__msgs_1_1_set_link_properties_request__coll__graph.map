@@ -1,0 +1,6 @@
+<map id="gazebo_msgs::SetLinkPropertiesRequest" name="gazebo_msgs::SetLinkPropertiesRequest">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="121,5,195,32"/>
+<area shape="rect" id="node3" href="$classgeometry__msgs_1_1_pose.html" title="geometry_msgs::Pose" alt="" coords="163,171,316,197"/>
+<area shape="rect" id="node4" href="$classgeometry__msgs_1_1_quaternion.html" title="geometry_msgs::Quaternion" alt="" coords="179,81,366,108"/>
+<area shape="rect" id="node5" href="$classgeometry__msgs_1_1_point.html" title="geometry_msgs::Point" alt="" coords="391,81,544,108"/>
+</map>

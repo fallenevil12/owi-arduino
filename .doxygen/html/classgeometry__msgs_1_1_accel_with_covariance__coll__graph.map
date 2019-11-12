@@ -1,0 +1,5 @@
+<map id="geometry_msgs::AccelWithCovariance" name="geometry_msgs::AccelWithCovariance">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="89,5,163,32"/>
+<area shape="rect" id="node3" href="$classgeometry__msgs_1_1_accel.html" title="geometry_msgs::Accel" alt="" coords="113,185,269,212"/>
+<area shape="rect" id="node4" href="$classgeometry__msgs_1_1_vector3.html" title="geometry_msgs::Vector3" alt="" coords="163,81,331,108"/>
+</map>

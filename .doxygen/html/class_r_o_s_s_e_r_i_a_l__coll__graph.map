@@ -1,0 +1,11 @@
+<map id="ROSSERIAL" name="ROSSERIAL">
+<area shape="rect" id="node2" href="$classros_1_1_publisher.html" title="ros::Publisher" alt="" coords="260,53,363,80"/>
+<area shape="rect" id="node6" href="$classros_1_1_node_handle__.html" title="ros::NodeHandle_\&lt; Hardware,\l MAX_SUBSCRIBERS, MAX_PUBLISHERS,\l INPUT_SIZE, OUTPUT_SIZE \&gt;" alt="" coords="544,88,839,144"/>
+<area shape="rect" id="node3" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="47,269,121,296"/>
+<area shape="rect" id="node5" href="$classowi_1_1joint__state.html" title="owi::joint_state" alt="" coords="404,357,515,384"/>
+<area shape="rect" id="node8" href="$classstd__msgs_1_1_string.html" title="std_msgs::String" alt="" coords="399,293,520,320"/>
+<area shape="rect" id="node9" href="$classowi_1_1position__cmd.html" title="owi::position_cmd" alt="" coords="248,236,375,263"/>
+<area shape="rect" id="node4" href="$classros_1_1_node_handle_base__.html" title="ros::NodeHandleBase_" alt="" coords="5,12,163,39"/>
+<area shape="rect" id="node7" href="$classros_1_1_subscriber__.html" title="ros::Subscriber_" alt="" coords="253,123,370,149"/>
+<area shape="rect" id="node10" href="$classros_1_1_subscriber.html" title="ros::Subscriber\&lt; owi\l::position_cmd \&gt;" alt="" coords="620,169,763,210"/>
+</map>

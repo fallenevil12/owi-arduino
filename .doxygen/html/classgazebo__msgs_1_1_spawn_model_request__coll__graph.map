@@ -1,0 +1,6 @@
+<map id="gazebo_msgs::SpawnModelRequest" name="gazebo_msgs::SpawnModelRequest">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="131,5,205,32"/>
+<area shape="rect" id="node3" href="$classgeometry__msgs_1_1_pose.html" title="geometry_msgs::Pose" alt="" coords="173,171,326,197"/>
+<area shape="rect" id="node4" href="$classgeometry__msgs_1_1_quaternion.html" title="geometry_msgs::Quaternion" alt="" coords="189,81,376,108"/>
+<area shape="rect" id="node5" href="$classgeometry__msgs_1_1_point.html" title="geometry_msgs::Point" alt="" coords="401,81,554,108"/>
+</map>

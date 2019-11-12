@@ -1,0 +1,4 @@
+<map id="gazebo_msgs::GetLightPropertiesResponse" name="gazebo_msgs::GetLightPropertiesResponse">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="73,5,146,32"/>
+<area shape="rect" id="node3" href="$classstd__msgs_1_1_color_r_g_b_a.html" title="std_msgs::ColorRGBA" alt="" coords="131,81,287,108"/>
+</map>

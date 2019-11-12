@@ -1,0 +1,7 @@
+<map id="map_msgs::GetPointMapResponse" name="map_msgs::GetPointMapResponse">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="151,5,225,32"/>
+<area shape="rect" id="node3" href="$classsensor__msgs_1_1_point_cloud2.html" title="sensor_msgs::PointCloud2" alt="" coords="159,199,337,225"/>
+<area shape="rect" id="node4" href="$classsensor__msgs_1_1_point_field.html" title="sensor_msgs::PointField" alt="" coords="187,95,354,121"/>
+<area shape="rect" id="node5" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="378,95,507,121"/>
+<area shape="rect" id="node6" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="404,5,481,32"/>
+</map>

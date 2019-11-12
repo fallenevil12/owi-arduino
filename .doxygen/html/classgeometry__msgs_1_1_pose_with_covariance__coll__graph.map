@@ -1,0 +1,6 @@
+<map id="geometry_msgs::PoseWithCovariance" name="geometry_msgs::PoseWithCovariance">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="137,5,211,32"/>
+<area shape="rect" id="node3" href="$classgeometry__msgs_1_1_pose.html" title="geometry_msgs::Pose" alt="" coords="179,171,332,197"/>
+<area shape="rect" id="node4" href="$classgeometry__msgs_1_1_quaternion.html" title="geometry_msgs::Quaternion" alt="" coords="195,81,382,108"/>
+<area shape="rect" id="node5" href="$classgeometry__msgs_1_1_point.html" title="geometry_msgs::Point" alt="" coords="407,81,560,108"/>
+</map>

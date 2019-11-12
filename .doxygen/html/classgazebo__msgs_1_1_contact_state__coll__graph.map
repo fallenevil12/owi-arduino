@@ -1,0 +1,5 @@
+<map id="gazebo_msgs::ContactState" name="gazebo_msgs::ContactState">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="148,5,221,32"/>
+<area shape="rect" id="node3" href="$classgeometry__msgs_1_1_vector3.html" title="geometry_msgs::Vector3" alt="" coords="101,81,269,108"/>
+<area shape="rect" id="node4" href="$classgeometry__msgs_1_1_wrench.html" title="geometry_msgs::Wrench" alt="" coords="249,201,417,228"/>
+</map>

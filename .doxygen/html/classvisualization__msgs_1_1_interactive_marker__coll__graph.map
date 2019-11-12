@@ -1,0 +1,14 @@
+<map id="visualization_msgs::InteractiveMarker" name="visualization_msgs::InteractiveMarker">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="5,257,79,284"/>
+<area shape="rect" id="node3" href="$classvisualization__msgs_1_1_interactive_marker_control.html" title="visualization_msgs\l::InteractiveMarkerControl" alt="" coords="1148,186,1321,227"/>
+<area shape="rect" id="node4" href="$classgeometry__msgs_1_1_quaternion.html" title="geometry_msgs::Quaternion" alt="" coords="128,93,315,120"/>
+<area shape="rect" id="node5" href="$classvisualization__msgs_1_1_marker.html" title="visualization_msgs\l::Marker" alt="" coords="865,263,999,305"/>
+<area shape="rect" id="node7" href="$classgeometry__msgs_1_1_vector3.html" title="geometry_msgs::Vector3" alt="" coords="339,217,507,244"/>
+<area shape="rect" id="node8" href="$classgeometry__msgs_1_1_pose.html" title="geometry_msgs::Pose" alt="" coords="531,308,684,335"/>
+<area shape="rect" id="node9" href="$classgeometry__msgs_1_1_point.html" title="geometry_msgs::Point" alt="" coords="145,347,298,373"/>
+<area shape="rect" id="node10" href="$classstd__msgs_1_1_color_r_g_b_a.html" title="std_msgs::ColorRGBA" alt="" coords="345,425,501,452"/>
+<area shape="rect" id="node11" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="543,528,672,555"/>
+<area shape="rect" id="node13" href="$classvisualization__msgs_1_1_menu_entry.html" title="visualization_msgs\l::MenuEntry" alt="" coords="708,581,841,622"/>
+<area shape="rect" id="node6" href="$classros_1_1_duration.html" title="ros::Duration" alt="" coords="559,195,656,221"/>
+<area shape="rect" id="node12" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="183,528,260,555"/>
+</map>

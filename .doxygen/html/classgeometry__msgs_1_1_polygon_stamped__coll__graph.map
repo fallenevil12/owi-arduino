@@ -1,0 +1,7 @@
+<map id="geometry_msgs::PolygonStamped" name="geometry_msgs::PolygonStamped">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="23,5,96,32"/>
+<area shape="rect" id="node3" href="$classgeometry__msgs_1_1_polygon.html" title="geometry_msgs::Polygon" alt="" coords="31,199,202,225"/>
+<area shape="rect" id="node4" href="$classgeometry__msgs_1_1_point32.html" title="geometry_msgs::Point32" alt="" coords="59,95,225,121"/>
+<area shape="rect" id="node5" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="249,95,379,121"/>
+<area shape="rect" id="node6" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="275,5,353,32"/>
+</map>

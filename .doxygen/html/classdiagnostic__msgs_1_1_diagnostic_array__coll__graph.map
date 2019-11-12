@@ -1,0 +1,7 @@
+<map id="diagnostic_msgs::DiagnosticArray" name="diagnostic_msgs::DiagnosticArray">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="29,5,102,32"/>
+<area shape="rect" id="node3" href="$classdiagnostic__msgs_1_1_diagnostic_status.html" title="diagnostic_msgs::Diagnostic\lStatus" alt="" coords="34,199,225,240"/>
+<area shape="rect" id="node4" href="$classdiagnostic__msgs_1_1_key_value.html" title="diagnostic_msgs::KeyValue" alt="" coords="62,95,246,121"/>
+<area shape="rect" id="node5" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="270,95,400,121"/>
+<area shape="rect" id="node6" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="296,5,374,32"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="map_msgs::ProjectedMap" name="map_msgs::ProjectedMap">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="395,5,468,32"/>
+<area shape="rect" id="node3" href="$classnav__msgs_1_1_occupancy_grid.html" title="nav_msgs::OccupancyGrid" alt="" coords="417,349,597,376"/>
+<area shape="rect" id="node4" href="$classnav__msgs_1_1_map_meta_data.html" title="nav_msgs::MapMetaData" alt="" coords="348,260,520,287"/>
+<area shape="rect" id="node6" href="$classgeometry__msgs_1_1_pose.html" title="geometry_msgs::Pose" alt="" coords="244,171,397,197"/>
+<area shape="rect" id="node7" href="$classgeometry__msgs_1_1_quaternion.html" title="geometry_msgs::Quaternion" alt="" coords="338,81,525,108"/>
+<area shape="rect" id="node8" href="$classgeometry__msgs_1_1_point.html" title="geometry_msgs::Point" alt="" coords="109,81,263,108"/>
+<area shape="rect" id="node9" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="544,260,673,287"/>
+<area shape="rect" id="node5" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="545,171,622,197"/>
+</map>

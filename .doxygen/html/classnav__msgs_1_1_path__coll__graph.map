@@ -1,0 +1,9 @@
+<map id="nav_msgs::Path" name="nav_msgs::Path">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="135,5,209,32"/>
+<area shape="rect" id="node3" href="$classstd__msgs_1_1_header.html" title="std_msgs::Header" alt="" coords="462,171,591,197"/>
+<area shape="rect" id="node5" href="$classgeometry__msgs_1_1_pose_stamped.html" title="geometry_msgs::PoseStamped" alt="" coords="135,260,340,287"/>
+<area shape="rect" id="node6" href="$classgeometry__msgs_1_1_pose.html" title="geometry_msgs::Pose" alt="" coords="161,171,314,197"/>
+<area shape="rect" id="node7" href="$classgeometry__msgs_1_1_quaternion.html" title="geometry_msgs::Quaternion" alt="" coords="144,81,331,108"/>
+<area shape="rect" id="node8" href="$classgeometry__msgs_1_1_point.html" title="geometry_msgs::Point" alt="" coords="355,81,509,108"/>
+<area shape="rect" id="node4" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="533,81,611,108"/>
+</map>

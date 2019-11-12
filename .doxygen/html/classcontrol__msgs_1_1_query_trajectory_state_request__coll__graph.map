@@ -1,0 +1,4 @@
+<map id="control_msgs::QueryTrajectoryStateRequest" name="control_msgs::QueryTrajectoryStateRequest">
+<area shape="rect" id="node2" href="$classros_1_1_msg.html" title="ros::Msg" alt="" coords="20,5,93,32"/>
+<area shape="rect" id="node3" href="$classros_1_1_time.html" title="ros::Time" alt="" coords="118,5,195,32"/>
+</map>
