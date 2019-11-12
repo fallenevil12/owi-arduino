@@ -9,6 +9,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -43,6 +50,21 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('struct_j_o_i_n_t_1_1_c_o_n_f_i_g.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -57,11 +79,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="class_j_o_i_n_t.html">JOINT</a></li><li class="navelem"><a class="el" href="struct_j_o_i_n_t_1_1_c_o_n_f_i_g.html">CONFIG</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
@@ -79,7 +96,7 @@ Collaboration diagram for JOINT::CONFIG:</div>
 <map name="_j_o_i_n_t_1_1_c_o_n_f_i_g_coll__map" id="_j_o_i_n_t_1_1_c_o_n_f_i_g_coll__map">
 <area shape="rect" id="node2" href="class_p_i_d.html" title="PID" alt="" coords="43,5,89,32"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -104,6 +121,8 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>configuration parametters for a joint </p>
+
+<p class="definition">Definition at line <a class="el" href="robotjoint_8hh_source.html#l00015">15</a> of file <a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a77110a41002ac228f056e9acb207878b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a77110a41002ac228f056e9acb207878b">&#9670;&nbsp;</a></span>degMax</h2>
@@ -117,6 +136,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>safe max anle </p>
+
+<p class="definition">Definition at line <a class="el" href="robotjoint_8hh_source.html#l00037">37</a> of file <a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a>.</p>
 
 </div>
 </div>
@@ -133,6 +154,8 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>safe min angle </p>
 
+<p class="definition">Definition at line <a class="el" href="robotjoint_8hh_source.html#l00035">35</a> of file <a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a>.</p>
+
 </div>
 </div>
 <a id="a145ec72a35745c3851cb5388fbd963cf"></a>
@@ -147,6 +170,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>joint_angle = sensor_angle - degOffset use D-H convention to determine 0 deg joint angle, then offset equal sensor angle reading at that position. </p>
+
+<p class="definition">Definition at line <a class="el" href="robotjoint_8hh_source.html#l00028">28</a> of file <a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a>.</p>
 
 </div>
 </div>
@@ -163,6 +188,8 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>dir pin 1 </p>
 
+<p class="definition">Definition at line <a class="el" href="robotjoint_8hh_source.html#l00019">19</a> of file <a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a>.</p>
+
 </div>
 </div>
 <a id="af0be4a3d07c33b3d20283de48ee70982"></a>
@@ -177,6 +204,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>dir pin 2 </p>
+
+<p class="definition">Definition at line <a class="el" href="robotjoint_8hh_source.html#l00021">21</a> of file <a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a>.</p>
 
 </div>
 </div>
@@ -193,6 +222,8 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>pwm Pin </p>
 
+<p class="definition">Definition at line <a class="el" href="robotjoint_8hh_source.html#l00017">17</a> of file <a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a>.</p>
+
 </div>
 </div>
 <a id="a3fa2d2699e48c0e00d741f3ce0bdca0c"></a>
@@ -207,6 +238,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>pid parametters </p>
+
+<p class="definition">Definition at line <a class="el" href="robotjoint_8hh_source.html#l00039">39</a> of file <a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a>.</p>
 
 </div>
 </div>
@@ -223,6 +256,8 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>analog in pin </p>
 
+<p class="definition">Definition at line <a class="el" href="robotjoint_8hh_source.html#l00023">23</a> of file <a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a>.</p>
+
 </div>
 </div>
 <a id="a71fde2bcbf374400cae5ed4d631c1b3d"></a>
@@ -238,17 +273,23 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>joint_angle = sensor_angle/ratio all joint are 1:1 exept for joint 3 </p>
 
+<p class="definition">Definition at line <a class="el" href="robotjoint_8hh_source.html#l00033">33</a> of file <a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="robotjoint_8hh_source.html">robotjoint.hh</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_j_o_i_n_t.html">JOINT</a></li><li class="navelem"><a class="el" href="struct_j_o_i_n_t_1_1_c_o_n_f_i_g.html">CONFIG</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

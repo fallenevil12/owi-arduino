@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['homepos',['homePos',['../class_m_o_t_o_r.html#a7666ccb3f0d5b8a4d97eea0811532cc6',1,'MOTOR']]]
+  ['enpin',['enPin',['../struct_j_o_i_n_t_1_1_c_o_n_f_i_g.html#a36e9b4e71607650e9e48aa03a48fb48a',1,'JOINT::CONFIG']]]
 ];

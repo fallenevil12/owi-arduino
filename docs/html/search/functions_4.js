@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['joint',['JOINT',['../class_j_o_i_n_t.html#a1fbcee4a5b66e71042a98248f457139b',1,'JOINT']]]
+  ['halt',['halt',['../class_j_o_i_n_t.html#a18d0c27f65789b0d5e4ad22cd6c5b78d',1,'JOINT']]]
 ];

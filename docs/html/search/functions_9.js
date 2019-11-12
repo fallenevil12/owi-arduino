@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['reverse',['reverse',['../class_l298_n.html#aa7428868bf8a436469c3305e9d6fac6b',1,'L298N']]],
-  ['rosserial',['ROSSERIAL',['../class_r_o_s_s_e_r_i_a_l.html#a01e8e6b4e5d6dc8221a5957c2234c6dc',1,'ROSSERIAL']]]
+  ['output',['output',['../class_m_o_t_o_r.html#af540bdeb4ad0a50d597ad615dc564b58',1,'MOTOR::output()'],['../class_l298_n.html#a0006a8d8f42d546d245d79ef79d80820',1,'L298N::output()']]]
 ];

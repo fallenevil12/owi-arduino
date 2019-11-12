@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['quaternion',['Quaternion',['../classgeometry__msgs_1_1_quaternion.html',1,'geometry_msgs']]],
-  ['quaternionstamped',['QuaternionStamped',['../classgeometry__msgs_1_1_quaternion_stamped.html',1,'geometry_msgs']]],
-  ['querycalibrationstate',['QueryCalibrationState',['../classcontrol__msgs_1_1_query_calibration_state.html',1,'control_msgs']]],
-  ['querycalibrationstaterequest',['QueryCalibrationStateRequest',['../classcontrol__msgs_1_1_query_calibration_state_request.html',1,'control_msgs']]],
-  ['querycalibrationstateresponse',['QueryCalibrationStateResponse',['../classcontrol__msgs_1_1_query_calibration_state_response.html',1,'control_msgs']]],
-  ['querytrajectorystate',['QueryTrajectoryState',['../classcontrol__msgs_1_1_query_trajectory_state.html',1,'control_msgs']]],
-  ['querytrajectorystaterequest',['QueryTrajectoryStateRequest',['../classcontrol__msgs_1_1_query_trajectory_state_request.html',1,'control_msgs']]],
-  ['querytrajectorystateresponse',['QueryTrajectoryStateResponse',['../classcontrol__msgs_1_1_query_trajectory_state_response.html',1,'control_msgs']]]
+  ['update',['update',['../class_m_o_t_o_r.html#ac5b1af944ce34e884109f91e5a243c9f',1,'MOTOR::update()'],['../class_r_o_s_s_e_r_i_a_l.html#ac4144c23fbbc04e1643bafeef31a39bf',1,'ROSSERIAL::update()']]]
 ];

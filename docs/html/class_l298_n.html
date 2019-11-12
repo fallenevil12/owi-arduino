@@ -9,6 +9,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -43,6 +50,21 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_l298_n.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -57,7 +79,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -75,7 +96,7 @@ Inheritance diagram for L298N:</div>
 <map name="_l298_n_inherit__map" id="_l298_n_inherit__map">
 <area shape="rect" id="node2" href="class_m_o_t_o_r.html" title="MOTOR" alt="" coords="5,5,76,32"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for L298N:</div>
 <div class="dyncontent">
@@ -83,7 +104,7 @@ Collaboration diagram for L298N:</div>
 <map name="_l298_n_coll__map" id="_l298_n_coll__map">
 <area shape="rect" id="node2" href="class_m_o_t_o_r.html" title="MOTOR" alt="" coords="5,5,76,32"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -108,12 +129,12 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_class_m_o_t_o_r"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_m_o_t_o_r')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_m_o_t_o_r.html">MOTOR</a></td></tr>
-<tr class="memitem:a6e2dc8cb98e6ae92e9406ed808c295bf inherit pub_types_class_m_o_t_o_r"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bf">DIR</a> { <b>POS</b>, 
-<b>NEG</b>
+<tr class="memitem:a6e2dc8cb98e6ae92e9406ed808c295bf inherit pub_types_class_m_o_t_o_r"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bf">DIR</a> { <a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">DIR::POS</a>, 
+<a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e">DIR::NEG</a>
  }</td></tr>
 <tr class="separator:a6e2dc8cb98e6ae92e9406ed808c295bf inherit pub_types_class_m_o_t_o_r"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_m_o_t_o_r"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_m_o_t_o_r')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_m_o_t_o_r.html">MOTOR</a></td></tr>
-<tr class="memitem:a2854c89126894d17354b7e4b09abf074 inherit pro_attribs_class_m_o_t_o_r"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bf">DIR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">dir</a> {DIR::POS}</td></tr>
+<tr class="memitem:a2854c89126894d17354b7e4b09abf074 inherit pro_attribs_class_m_o_t_o_r"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bf">DIR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">dir</a> {<a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">DIR::POS</a>}</td></tr>
 <tr class="separator:a2854c89126894d17354b7e4b09abf074 inherit pro_attribs_class_m_o_t_o_r"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c20bacb718581ed9562a2fbee4a9514 inherit pro_attribs_class_m_o_t_o_r"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_o_t_o_r.html#a0c20bacb718581ed9562a2fbee4a9514">pwm</a> {0}</td></tr>
 <tr class="separator:a0c20bacb718581ed9562a2fbee4a9514 inherit pro_attribs_class_m_o_t_o_r"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +147,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_l298_n.html">L298N</a> motor driver with arduino </p>
+
+<p class="definition">Definition at line <a class="el" href="motor_8hh_source.html#l00064">64</a> of file <a class="el" href="motor_8hh_source.html">motor.hh</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac9582dce9fcca8291358812a7a3407ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac9582dce9fcca8291358812a7a3407ba">&#9670;&nbsp;</a></span>L298N()</h2>
@@ -160,6 +183,8 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor </p>
 
+<p class="definition">Definition at line <a class="el" href="motor_8cpp_source.html#l00019">19</a> of file <a class="el" href="motor_8cpp_source.html">motor.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                                          :</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;             enP(enPin), in1P(in1Pin), in2P(in2Pin), dur(0) {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    pinMode(enP, OUTPUT);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    pinMode(in1P, OUTPUT);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    pinMode(in2P, OUTPUT);</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -189,6 +214,34 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_m_o_t_o_r.html#af540bdeb4ad0a50d597ad615dc564b58">MOTOR</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="motor_8cpp_source.html#l00030">30</a> of file <a class="el" href="motor_8cpp_source.html">motor.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="motor_8hh_source.html#l00046">MOTOR::dir</a>, <a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e">MOTOR::NEG</a>, <a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">MOTOR::POS</a>, and <a class="el" href="motor_8hh_source.html#l00049">MOTOR::pwm</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="robotjoint_8cpp_source.html#l00043">JOINT::actuate()</a>, <a class="el" href="robotjoint_8cpp_source.html#l00038">JOINT::halt()</a>, <a class="el" href="motor_8cpp_source.html#l00054">reverse()</a>, <a class="el" href="robotjoint_8cpp_source.html#l00082">JOINT::test_step_neg()</a>, and <a class="el" href="robotjoint_8cpp_source.html#l00070">JOINT::test_step_pos()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                   {</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">switch</span> (<a class="code" href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">dir</a>) {</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">DIR::POS</a>:</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            digitalWrite(in1P, 0);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            digitalWrite(in2P, 1);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e">DIR::NEG</a>:</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            digitalWrite(in1P, 1);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            digitalWrite(in2P, 0);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">default</span>:</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    analogWrite(enP, <a class="code" href="class_m_o_t_o_r.html#a0c20bacb718581ed9562a2fbee4a9514">pwm</a>);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span> (dur != -1) {</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       delay(dur);</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;       analogWrite(enP, 0);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div><div class="ttc" id="class_m_o_t_o_r_html_a0c20bacb718581ed9562a2fbee4a9514"><div class="ttname"><a href="class_m_o_t_o_r.html#a0c20bacb718581ed9562a2fbee4a9514">MOTOR::pwm</a></div><div class="ttdeci">uint8_t pwm</div><div class="ttdef"><b>Definition:</b> <a href="motor_8hh_source.html#l00049">motor.hh:49</a></div></div>
+<div class="ttc" id="class_m_o_t_o_r_html_a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e"><div class="ttname"><a href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e">MOTOR::DIR::NEG</a></div></div>
+<div class="ttc" id="class_m_o_t_o_r_html_a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0"><div class="ttname"><a href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">MOTOR::DIR::POS</a></div></div>
+<div class="ttc" id="class_m_o_t_o_r_html_a2854c89126894d17354b7e4b09abf074"><div class="ttname"><a href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">MOTOR::dir</a></div><div class="ttdeci">DIR dir</div><div class="ttdef"><b>Definition:</b> <a href="motor_8hh_source.html#l00046">motor.hh:46</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_l298_n_a0006a8d8f42d546d245d79ef79d80820_icgraph.png" border="0" usemap="#class_l298_n_a0006a8d8f42d546d245d79ef79d80820_icgraph" alt=""/></div>
+<map name="class_l298_n_a0006a8d8f42d546d245d79ef79d80820_icgraph" id="class_l298_n_a0006a8d8f42d546d245d79ef79d80820_icgraph">
+<area shape="rect" id="node2" href="class_j_o_i_n_t.html#aeacab1adef2928f9c138f67c52ebca8a" title="JOINT::actuate" alt="" coords="524,56,636,83"/>
+<area shape="rect" id="node7" href="class_j_o_i_n_t.html#a18d0c27f65789b0d5e4ad22cd6c5b78d" title="JOINT::halt" alt="" coords="187,56,278,83"/>
+<area shape="rect" id="node10" href="class_l298_n.html#aa7428868bf8a436469c3305e9d6fac6b" title="L298N::reverse" alt="" coords="177,107,288,133"/>
+<area shape="rect" id="node11" href="class_j_o_i_n_t.html#ac98da0778161c1883e59ed97baf32c92" title="JOINT::test_step_neg" alt="" coords="157,157,308,184"/>
+<area shape="rect" id="node12" href="class_j_o_i_n_t.html#a17979c9d724dc051df1b9254521beda7" title="JOINT::test_step_pos" alt="" coords="157,208,308,235"/>
+<area shape="rect" id="node3" href="class_j_o_i_n_t.html#ad3dd20dfb6938f3162760bf1080bd210" title="JOINT::pid_test" alt="" coords="684,5,799,32"/>
+<area shape="rect" id="node6" href="main_8cpp.html#ae72d7ab4bca48d2e7fc6c26e782cb27c" title="task_actuate" alt="" coords="847,56,944,83"/>
+<area shape="rect" id="node4" href="main_8cpp.html#af550ae983186b39cf0774010ae8a92c0" title="task_Serial" alt="" coords="852,5,939,32"/>
+<area shape="rect" id="node5" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="992,56,1047,83"/>
+<area shape="rect" id="node8" href="class_j_o_i_n_t.html#a432f90d1d9e8858de371658f8c9737ce" title="JOINT::getAngle" alt="" coords="356,107,476,133"/>
+<area shape="rect" id="node9" href="main_8cpp.html#ac7147b8df2eb0c5aa226905a59ad4b60" title="task_ROS" alt="" coords="700,107,783,133"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="aa7428868bf8a436469c3305e9d6fac6b"></a>
@@ -206,6 +259,22 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>perform reverse of last motion </p>
+
+<p class="definition">Definition at line <a class="el" href="motor_8cpp_source.html#l00054">54</a> of file <a class="el" href="motor_8cpp_source.html">motor.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="motor_8hh_source.html#l00046">MOTOR::dir</a>, <a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e">MOTOR::NEG</a>, <a class="el" href="motor_8cpp_source.html#l00030">output()</a>, and <a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">MOTOR::POS</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    {</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">dir</a> == <a class="code" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">DIR::POS</a>) {</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">dir</a> = <a class="code" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e">DIR::NEG</a>;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">dir</a> = <a class="code" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">DIR::POS</a>;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="class_l298_n.html#a0006a8d8f42d546d245d79ef79d80820">output</a>();</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div><div class="ttc" id="class_l298_n_html_a0006a8d8f42d546d245d79ef79d80820"><div class="ttname"><a href="class_l298_n.html#a0006a8d8f42d546d245d79ef79d80820">L298N::output</a></div><div class="ttdeci">void output() override</div><div class="ttdef"><b>Definition:</b> <a href="motor_8cpp_source.html#l00030">motor.cpp:30</a></div></div>
+<div class="ttc" id="class_m_o_t_o_r_html_a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e"><div class="ttname"><a href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e">MOTOR::DIR::NEG</a></div></div>
+<div class="ttc" id="class_m_o_t_o_r_html_a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0"><div class="ttname"><a href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">MOTOR::DIR::POS</a></div></div>
+<div class="ttc" id="class_m_o_t_o_r_html_a2854c89126894d17354b7e4b09abf074"><div class="ttname"><a href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">MOTOR::dir</a></div><div class="ttdeci">DIR dir</div><div class="ttdef"><b>Definition:</b> <a href="motor_8hh_source.html#l00046">motor.hh:46</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_l298_n_aa7428868bf8a436469c3305e9d6fac6b_cgraph.png" border="0" usemap="#class_l298_n_aa7428868bf8a436469c3305e9d6fac6b_cgraph" alt=""/></div>
+<map name="class_l298_n_aa7428868bf8a436469c3305e9d6fac6b_cgraph" id="class_l298_n_aa7428868bf8a436469c3305e9d6fac6b_cgraph">
+<area shape="rect" id="node2" href="class_l298_n.html#a0006a8d8f42d546d245d79ef79d80820" title="L298N::output" alt="" coords="164,5,268,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -231,18 +300,43 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="motor_8cpp_source.html#l00026">26</a> of file <a class="el" href="motor_8cpp_source.html">motor.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="robotjoint_8cpp_source.html#l00043">JOINT::actuate()</a>, <a class="el" href="robotjoint_8cpp_source.html#l00038">JOINT::halt()</a>, <a class="el" href="robotjoint_8cpp_source.html#l00082">JOINT::test_step_neg()</a>, and <a class="el" href="robotjoint_8cpp_source.html#l00070">JOINT::test_step_pos()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                     {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    dur = duration;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div></div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_l298_n_a09b4b55e43fdadf87e61456831fafaf2_icgraph.png" border="0" usemap="#class_l298_n_a09b4b55e43fdadf87e61456831fafaf2_icgraph" alt=""/></div>
+<map name="class_l298_n_a09b4b55e43fdadf87e61456831fafaf2_icgraph" id="class_l298_n_a09b4b55e43fdadf87e61456831fafaf2_icgraph">
+<area shape="rect" id="node2" href="class_j_o_i_n_t.html#aeacab1adef2928f9c138f67c52ebca8a" title="JOINT::actuate" alt="" coords="555,56,667,83"/>
+<area shape="rect" id="node7" href="class_j_o_i_n_t.html#a18d0c27f65789b0d5e4ad22cd6c5b78d" title="JOINT::halt" alt="" coords="218,56,309,83"/>
+<area shape="rect" id="node10" href="class_j_o_i_n_t.html#ac98da0778161c1883e59ed97baf32c92" title="JOINT::test_step_neg" alt="" coords="188,107,339,133"/>
+<area shape="rect" id="node11" href="class_j_o_i_n_t.html#a17979c9d724dc051df1b9254521beda7" title="JOINT::test_step_pos" alt="" coords="188,157,339,184"/>
+<area shape="rect" id="node3" href="class_j_o_i_n_t.html#ad3dd20dfb6938f3162760bf1080bd210" title="JOINT::pid_test" alt="" coords="715,5,829,32"/>
+<area shape="rect" id="node6" href="main_8cpp.html#ae72d7ab4bca48d2e7fc6c26e782cb27c" title="task_actuate" alt="" coords="877,56,975,83"/>
+<area shape="rect" id="node4" href="main_8cpp.html#af550ae983186b39cf0774010ae8a92c0" title="task_Serial" alt="" coords="883,5,969,32"/>
+<area shape="rect" id="node5" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="1023,56,1077,83"/>
+<area shape="rect" id="node8" href="class_j_o_i_n_t.html#a432f90d1d9e8858de371658f8c9737ce" title="JOINT::getAngle" alt="" coords="387,107,507,133"/>
+<area shape="rect" id="node9" href="main_8cpp.html#ac7147b8df2eb0c5aa226905a59ad4b60" title="task_ROS" alt="" coords="731,107,813,133"/>
+</map>
+</div>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="motor_8hh_source.html">motor.hh</a></li>
-<li>src/motor.cpp</li>
+<li>src/<a class="el" href="motor_8cpp_source.html">motor.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_l298_n.html">L298N</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

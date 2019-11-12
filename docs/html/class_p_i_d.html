@@ -9,6 +9,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -43,6 +50,21 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_p_i_d.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -57,7 +79,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -71,28 +92,152 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a25a32c01467a9d98b77c5535dbfa185f"><td class="memItemLeft" align="right" valign="top"><a id="a25a32c01467a9d98b77c5535dbfa185f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PID</b> (float kp, float ki, float kd)</td></tr>
+<tr class="memitem:a25a32c01467a9d98b77c5535dbfa185f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a25a32c01467a9d98b77c5535dbfa185f">PID</a> (float kp, float ki, float kd)</td></tr>
 <tr class="separator:a25a32c01467a9d98b77c5535dbfa185f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f1dfc29e178cb84d93dca60b780f97f"><td class="memItemLeft" align="right" valign="top"><a id="a9f1dfc29e178cb84d93dca60b780f97f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCoef</b> (float kp, float ki, float kd)</td></tr>
+<tr class="memitem:a9f1dfc29e178cb84d93dca60b780f97f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a9f1dfc29e178cb84d93dca60b780f97f">setCoef</a> (float kp, float ki, float kd)</td></tr>
 <tr class="separator:a9f1dfc29e178cb84d93dca60b780f97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a78713fa811d20dc3647b51414fc465"><td class="memItemLeft" align="right" valign="top"><a id="a2a78713fa811d20dc3647b51414fc465"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>pidCal</b> (float val, float refVal)</td></tr>
+<tr class="memitem:a2a78713fa811d20dc3647b51414fc465"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a2a78713fa811d20dc3647b51414fc465">pidCal</a> (float val, float refVal)</td></tr>
 <tr class="separator:a2a78713fa811d20dc3647b51414fc465"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Versatile <a class="el" href="class_p_i_d.html">PID</a> control class </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+
+<p class="definition">Definition at line <a class="el" href="pid_8hh_source.html#l00005">5</a> of file <a class="el" href="pid_8hh_source.html">pid.hh</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a25a32c01467a9d98b77c5535dbfa185f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25a32c01467a9d98b77c5535dbfa185f">&#9670;&nbsp;</a></span>PID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PID::PID </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>kp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ki</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>kd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pid_8cpp_source.html#l00006">6</a> of file <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                                       :</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    kp(_kp), ki(_ki), kd(_kd) {}</div></div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2a78713fa811d20dc3647b51414fc465"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a78713fa811d20dc3647b51414fc465">&#9670;&nbsp;</a></span>pidCal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PID::pidCal </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>refVal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pid_8cpp_source.html#l00015">15</a> of file <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="pid_8cpp_source.html#l00004">ACCURACY</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="robotjoint_8cpp_source.html#l00043">JOINT::actuate()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                           {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    val = _val;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    refVal = _refVal;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    prevErr = err;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    err = val - refVal;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> count = 0;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// just return 0 gain if error stayed within accuracy for a while</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span> (fabs(err) &lt; <a class="code" href="pid_8cpp.html#af270a96662132d0385cb6b4637c5a689">ACCURACY</a>) {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        count++;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">if</span> (count &gt; 100) {</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            count = 100;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">return</span> 0.0;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        count = 0;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// add i term to reduce small error</span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (fabs(err) &lt; 2*<a class="code" href="pid_8cpp.html#af270a96662132d0385cb6b4637c5a689">ACCURACY</a>) {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span> (fabs(ki*accmlErr) &lt; 0.5) accmlErr = accmlErr + err; <span class="comment">//prevent windup saturation</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        accmlErr = 0;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    gain = kp*err + ki*accmlErr + kd*(err-prevErr);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span> (gain &gt; 1.0) gain = 1.0;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span> (gain &lt; -1.0) gain = -1.0;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> gain;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div><div class="ttc" id="pid_8cpp_html_af270a96662132d0385cb6b4637c5a689"><div class="ttname"><a href="pid_8cpp.html#af270a96662132d0385cb6b4637c5a689">ACCURACY</a></div><div class="ttdeci">#define ACCURACY</div><div class="ttdef"><b>Definition:</b> <a href="pid_8cpp_source.html#l00004">pid.cpp:4</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_i_d_a2a78713fa811d20dc3647b51414fc465_icgraph.png" border="0" usemap="#class_p_i_d_a2a78713fa811d20dc3647b51414fc465_icgraph" alt=""/></div>
+<map name="class_p_i_d_a2a78713fa811d20dc3647b51414fc465_icgraph" id="class_p_i_d_a2a78713fa811d20dc3647b51414fc465_icgraph">
+<area shape="rect" id="node2" href="class_j_o_i_n_t.html#aeacab1adef2928f9c138f67c52ebca8a" title="JOINT::actuate" alt="" coords="144,31,256,57"/>
+<area shape="rect" id="node3" href="class_j_o_i_n_t.html#ad3dd20dfb6938f3162760bf1080bd210" title="JOINT::pid_test" alt="" coords="304,5,419,32"/>
+<area shape="rect" id="node6" href="main_8cpp.html#ae72d7ab4bca48d2e7fc6c26e782cb27c" title="task_actuate" alt="" coords="467,56,564,83"/>
+<area shape="rect" id="node4" href="main_8cpp.html#af550ae983186b39cf0774010ae8a92c0" title="task_Serial" alt="" coords="472,5,559,32"/>
+<area shape="rect" id="node5" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="612,31,667,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9f1dfc29e178cb84d93dca60b780f97f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f1dfc29e178cb84d93dca60b780f97f">&#9670;&nbsp;</a></span>setCoef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PID::setCoef </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>kp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ki</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>kd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pid_8cpp_source.html#l00009">9</a> of file <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                                                 {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    kp = _kp;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    ki = _ki;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    kd = _kd;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="pid_8hh_source.html">pid.hh</a></li>
-<li>src/pid.cpp</li>
+<li>src/<a class="el" href="pid_8cpp_source.html">pid.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_p_i_d.html">PID</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

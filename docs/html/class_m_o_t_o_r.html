@@ -9,6 +9,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -43,6 +50,21 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_m_o_t_o_r.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -57,7 +79,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
@@ -77,12 +98,12 @@ Inheritance diagram for MOTOR:</div>
 <map name="_m_o_t_o_r_inherit__map" id="_m_o_t_o_r_inherit__map">
 <area shape="rect" id="node2" href="class_l298_n.html" title="L298N" alt="" coords="11,80,71,107"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a6e2dc8cb98e6ae92e9406ed808c295bf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bf">DIR</a> { <b>POS</b>, 
-<b>NEG</b>
+<tr class="memitem:a6e2dc8cb98e6ae92e9406ed808c295bf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bf">DIR</a> { <a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">DIR::POS</a>, 
+<a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e">DIR::NEG</a>
  }</td></tr>
 <tr class="separator:a6e2dc8cb98e6ae92e9406ed808c295bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -101,7 +122,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a2854c89126894d17354b7e4b09abf074"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bf">DIR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">dir</a> {DIR::POS}</td></tr>
+<tr class="memitem:a2854c89126894d17354b7e4b09abf074"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bf">DIR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">dir</a> {<a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">DIR::POS</a>}</td></tr>
 <tr class="separator:a2854c89126894d17354b7e4b09abf074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c20bacb718581ed9562a2fbee4a9514"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_o_t_o_r.html#a0c20bacb718581ed9562a2fbee4a9514">pwm</a> {0}</td></tr>
 <tr class="separator:a0c20bacb718581ed9562a2fbee4a9514"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,6 +135,8 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract motor driver class </p>
+
+<p class="definition">Definition at line <a class="el" href="motor_8hh_source.html#l00009">9</a> of file <a class="el" href="motor_8hh_source.html">motor.hh</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a6e2dc8cb98e6ae92e9406ed808c295bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6e2dc8cb98e6ae92e9406ed808c295bf">&#9670;&nbsp;</a></span>DIR</h2>
@@ -135,7 +158,13 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>direction of movement, implementation defined POS - positive direction NEG - negative direction </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0"></a>POS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e2dc8cb98e6ae92e9406ed808c295bfa5dd68b1a7db42a1cce4dce09dbaa179e"></a>NEG&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
+<p class="definition">Definition at line <a class="el" href="motor_8hh_source.html#l00017">17</a> of file <a class="el" href="motor_8hh_source.html">motor.hh</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                   {</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        POS,</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        NEG</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    };</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -155,6 +184,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor </p>
 
+<p class="definition">Definition at line <a class="el" href="motor_8cpp_source.html#l00004">4</a> of file <a class="el" href="motor_8cpp_source.html">motor.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -203,6 +234,28 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>set rotational direction </p>
 
+<p class="definition">Definition at line <a class="el" href="motor_8cpp_source.html#l00011">11</a> of file <a class="el" href="motor_8cpp_source.html">motor.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="motor_8hh_source.html#l00046">dir</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="robotjoint_8cpp_source.html#l00043">JOINT::actuate()</a>, <a class="el" href="robotjoint_8cpp_source.html#l00082">JOINT::test_step_neg()</a>, <a class="el" href="robotjoint_8cpp_source.html#l00070">JOINT::test_step_pos()</a>, and <a class="el" href="motor_8cpp_source.html#l00006">update()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                                      {</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">dir</a> = direction;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div><div class="ttc" id="class_m_o_t_o_r_html_a2854c89126894d17354b7e4b09abf074"><div class="ttname"><a href="class_m_o_t_o_r.html#a2854c89126894d17354b7e4b09abf074">MOTOR::dir</a></div><div class="ttdeci">DIR dir</div><div class="ttdef"><b>Definition:</b> <a href="motor_8hh_source.html#l00046">motor.hh:46</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_m_o_t_o_r_a0b7bb4611e1cd3cb76726605bfdd82b0_icgraph.png" border="0" usemap="#class_m_o_t_o_r_a0b7bb4611e1cd3cb76726605bfdd82b0_icgraph" alt=""/></div>
+<map name="class_m_o_t_o_r_a0b7bb4611e1cd3cb76726605bfdd82b0_icgraph" id="class_m_o_t_o_r_a0b7bb4611e1cd3cb76726605bfdd82b0_icgraph">
+<area shape="rect" id="node2" href="class_j_o_i_n_t.html#aeacab1adef2928f9c138f67c52ebca8a" title="JOINT::actuate" alt="" coords="222,31,334,57"/>
+<area shape="rect" id="node7" href="class_j_o_i_n_t.html#ac98da0778161c1883e59ed97baf32c92" title="JOINT::test_step_neg" alt="" coords="203,81,353,108"/>
+<area shape="rect" id="node8" href="class_j_o_i_n_t.html#a17979c9d724dc051df1b9254521beda7" title="JOINT::test_step_pos" alt="" coords="203,132,353,159"/>
+<area shape="rect" id="node9" href="class_m_o_t_o_r.html#ac5b1af944ce34e884109f91e5a243c9f" title="MOTOR::update" alt="" coords="219,183,337,209"/>
+<area shape="rect" id="node3" href="class_j_o_i_n_t.html#ad3dd20dfb6938f3162760bf1080bd210" title="JOINT::pid_test" alt="" coords="401,5,516,32"/>
+<area shape="rect" id="node6" href="main_8cpp.html#ae72d7ab4bca48d2e7fc6c26e782cb27c" title="task_actuate" alt="" coords="564,56,661,83"/>
+<area shape="rect" id="node4" href="main_8cpp.html#af550ae983186b39cf0774010ae8a92c0" title="task_Serial" alt="" coords="569,5,656,32"/>
+<area shape="rect" id="node5" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="709,31,764,57"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a2dbcedef9232f317a6ace02c71f15119"></a>
@@ -221,6 +274,31 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>set duty cycle </p>
+
+<p class="definition">Definition at line <a class="el" href="motor_8cpp_source.html#l00015">15</a> of file <a class="el" href="motor_8cpp_source.html">motor.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="motor_8hh_source.html#l00049">pwm</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="robotjoint_8cpp_source.html#l00043">JOINT::actuate()</a>, <a class="el" href="robotjoint_8cpp_source.html#l00038">JOINT::halt()</a>, <a class="el" href="robotjoint_8cpp_source.html#l00082">JOINT::test_step_neg()</a>, <a class="el" href="robotjoint_8cpp_source.html#l00070">JOINT::test_step_pos()</a>, and <a class="el" href="motor_8cpp_source.html#l00006">update()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                  {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_m_o_t_o_r.html#a0c20bacb718581ed9562a2fbee4a9514">pwm</a> = power;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div><div class="ttc" id="class_m_o_t_o_r_html_a0c20bacb718581ed9562a2fbee4a9514"><div class="ttname"><a href="class_m_o_t_o_r.html#a0c20bacb718581ed9562a2fbee4a9514">MOTOR::pwm</a></div><div class="ttdeci">uint8_t pwm</div><div class="ttdef"><b>Definition:</b> <a href="motor_8hh_source.html#l00049">motor.hh:49</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_m_o_t_o_r_a2dbcedef9232f317a6ace02c71f15119_icgraph.png" border="0" usemap="#class_m_o_t_o_r_a2dbcedef9232f317a6ace02c71f15119_icgraph" alt=""/></div>
+<map name="class_m_o_t_o_r_a2dbcedef9232f317a6ace02c71f15119_icgraph" id="class_m_o_t_o_r_a2dbcedef9232f317a6ace02c71f15119_icgraph">
+<area shape="rect" id="node2" href="class_j_o_i_n_t.html#aeacab1adef2928f9c138f67c52ebca8a" title="JOINT::actuate" alt="" coords="555,56,667,83"/>
+<area shape="rect" id="node7" href="class_j_o_i_n_t.html#a18d0c27f65789b0d5e4ad22cd6c5b78d" title="JOINT::halt" alt="" coords="218,56,309,83"/>
+<area shape="rect" id="node10" href="class_j_o_i_n_t.html#ac98da0778161c1883e59ed97baf32c92" title="JOINT::test_step_neg" alt="" coords="188,107,339,133"/>
+<area shape="rect" id="node11" href="class_j_o_i_n_t.html#a17979c9d724dc051df1b9254521beda7" title="JOINT::test_step_pos" alt="" coords="188,157,339,184"/>
+<area shape="rect" id="node12" href="class_m_o_t_o_r.html#ac5b1af944ce34e884109f91e5a243c9f" title="MOTOR::update" alt="" coords="204,208,323,235"/>
+<area shape="rect" id="node3" href="class_j_o_i_n_t.html#ad3dd20dfb6938f3162760bf1080bd210" title="JOINT::pid_test" alt="" coords="715,5,829,32"/>
+<area shape="rect" id="node6" href="main_8cpp.html#ae72d7ab4bca48d2e7fc6c26e782cb27c" title="task_actuate" alt="" coords="877,56,975,83"/>
+<area shape="rect" id="node4" href="main_8cpp.html#af550ae983186b39cf0774010ae8a92c0" title="task_Serial" alt="" coords="883,5,969,32"/>
+<area shape="rect" id="node5" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="1023,56,1077,83"/>
+<area shape="rect" id="node8" href="class_j_o_i_n_t.html#a432f90d1d9e8858de371658f8c9737ce" title="JOINT::getAngle" alt="" coords="387,107,507,133"/>
+<area shape="rect" id="node9" href="main_8cpp.html#ac7147b8df2eb0c5aa226905a59ad4b60" title="task_ROS" alt="" coords="731,107,813,133"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -251,6 +329,21 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>new control parametters </p>
 
+<p class="definition">Definition at line <a class="el" href="motor_8cpp_source.html#l00006">6</a> of file <a class="el" href="motor_8cpp_source.html">motor.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="motor_8cpp_source.html#l00011">setDirection()</a>, and <a class="el" href="motor_8cpp_source.html#l00015">setPower()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                                               {</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="class_m_o_t_o_r.html#a0b7bb4611e1cd3cb76726605bfdd82b0">setDirection</a>(direction);</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_m_o_t_o_r.html#a2dbcedef9232f317a6ace02c71f15119">setPower</a>(power);</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div><div class="ttc" id="class_m_o_t_o_r_html_a0b7bb4611e1cd3cb76726605bfdd82b0"><div class="ttname"><a href="class_m_o_t_o_r.html#a0b7bb4611e1cd3cb76726605bfdd82b0">MOTOR::setDirection</a></div><div class="ttdeci">void setDirection(DIR direction)</div><div class="ttdef"><b>Definition:</b> <a href="motor_8cpp_source.html#l00011">motor.cpp:11</a></div></div>
+<div class="ttc" id="class_m_o_t_o_r_html_a2dbcedef9232f317a6ace02c71f15119"><div class="ttname"><a href="class_m_o_t_o_r.html#a2dbcedef9232f317a6ace02c71f15119">MOTOR::setPower</a></div><div class="ttdeci">void setPower(uint8_t power)</div><div class="ttdef"><b>Definition:</b> <a href="motor_8cpp_source.html#l00015">motor.cpp:15</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_m_o_t_o_r_ac5b1af944ce34e884109f91e5a243c9f_cgraph.png" border="0" usemap="#class_m_o_t_o_r_ac5b1af944ce34e884109f91e5a243c9f_cgraph" alt=""/></div>
+<map name="class_m_o_t_o_r_ac5b1af944ce34e884109f91e5a243c9f_cgraph" id="class_m_o_t_o_r_ac5b1af944ce34e884109f91e5a243c9f_cgraph">
+<area shape="rect" id="node2" href="class_m_o_t_o_r.html#a0b7bb4611e1cd3cb76726605bfdd82b0" title="MOTOR::setDirection" alt="" coords="172,5,321,32"/>
+<area shape="rect" id="node3" href="class_m_o_t_o_r.html#a2dbcedef9232f317a6ace02c71f15119" title="MOTOR::setPower" alt="" coords="179,56,314,83"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -264,7 +357,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bf">DIR</a> MOTOR::dir {DIR::POS}</td>
+          <td class="memname"><a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bf">DIR</a> MOTOR::dir {<a class="el" href="class_m_o_t_o_r.html#a6e2dc8cb98e6ae92e9406ed808c295bfa1903f54cd46d54aa3200a4508c948db0">DIR::POS</a>}</td>
         </tr>
       </table>
   </td>
@@ -274,6 +367,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>rotation direction </p>
+
+<p class="definition">Definition at line <a class="el" href="motor_8hh_source.html#l00046">46</a> of file <a class="el" href="motor_8hh_source.html">motor.hh</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="motor_8cpp_source.html#l00030">L298N::output()</a>, <a class="el" href="motor_8cpp_source.html#l00054">L298N::reverse()</a>, and <a class="el" href="motor_8cpp_source.html#l00011">setDirection()</a>.</p>
 
 </div>
 </div>
@@ -298,6 +395,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>home position </p>
 
+<p class="definition">Definition at line <a class="el" href="motor_8hh_source.html#l00055">55</a> of file <a class="el" href="motor_8hh_source.html">motor.hh</a>.</p>
+
 </div>
 </div>
 <a id="ae854d563dff2cc147619614d36f2e69c"></a>
@@ -320,6 +419,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>rotational position </p>
+
+<p class="definition">Definition at line <a class="el" href="motor_8hh_source.html#l00052">52</a> of file <a class="el" href="motor_8hh_source.html">motor.hh</a>.</p>
 
 </div>
 </div>
@@ -344,6 +445,10 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>duty cycle (0-255) </p>
 
+<p class="definition">Definition at line <a class="el" href="motor_8hh_source.html#l00049">49</a> of file <a class="el" href="motor_8hh_source.html">motor.hh</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="motor_8cpp_source.html#l00030">L298N::output()</a>, and <a class="el" href="motor_8cpp_source.html#l00015">setPower()</a>.</p>
+
 </div>
 </div>
 <a id="a67878e2fdba7b31fdc40184fc62f6cd9"></a>
@@ -367,18 +472,24 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>target position </p>
 
+<p class="definition">Definition at line <a class="el" href="motor_8hh_source.html#l00058">58</a> of file <a class="el" href="motor_8hh_source.html">motor.hh</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="motor_8hh_source.html">motor.hh</a></li>
-<li>src/motor.cpp</li>
+<li>src/<a class="el" href="motor_8cpp_source.html">motor.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_m_o_t_o_r.html">MOTOR</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

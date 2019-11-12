@@ -9,6 +9,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -43,6 +50,21 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_arduino_hardware.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -57,7 +79,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">ArduinoHardware Member List</div>  </div>
@@ -66,21 +87,24 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="class_arduino_hardware.html">ArduinoHardware</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>ArduinoHardware</b>() (defined in <a class="el" href="class_arduino_hardware.html">ArduinoHardware</a>)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>baud_</b> (defined in <a class="el" href="class_arduino_hardware.html">ArduinoHardware</a>)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getBaud</b>() (defined in <a class="el" href="class_arduino_hardware.html">ArduinoHardware</a>)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>init</b>() (defined in <a class="el" href="class_arduino_hardware.html">ArduinoHardware</a>)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>iostream</b> (defined in <a class="el" href="class_arduino_hardware.html">ArduinoHardware</a>)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>read</b>() (defined in <a class="el" href="class_arduino_hardware.html">ArduinoHardware</a>)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setBaud</b>(long baud) (defined in <a class="el" href="class_arduino_hardware.html">ArduinoHardware</a>)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>time</b>() (defined in <a class="el" href="class_arduino_hardware.html">ArduinoHardware</a>)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>write</b>(uint8_t *data, int length) (defined in <a class="el" href="class_arduino_hardware.html">ArduinoHardware</a>)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_arduino_hardware.html#a14ef9ef5bdaf6c51417244fb8b2d8203">ArduinoHardware</a>()</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_arduino_hardware.html#a330b02a66a160e83f1dbaffa69b749c6">baud_</a></td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_arduino_hardware.html#a9be0452da9f113495e5fa4629c01f1b2">getBaud</a>()</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_arduino_hardware.html#a7c8939227302d85cacee3f094ebb2143">init</a>()</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_arduino_hardware.html#ab61bf3330e62cee70b3aac4b8f109034">iostream</a></td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_arduino_hardware.html#a1e21a154aecc4083c302e35b36d4b44a">read</a>()</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_arduino_hardware.html#a0899c05a56390e015b80ba4928f8c932">setBaud</a>(long baud)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_arduino_hardware.html#a086f3103bd98727dd089ca062a743dbd">time</a>()</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_arduino_hardware.html#ac98404299e26b214f75bf33d744710a1">write</a>(uint8_t *data, int length)</td><td class="entry"><a class="el" href="class_arduino_hardware.html">ArduinoHardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

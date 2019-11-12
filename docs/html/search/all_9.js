@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['motor',['MOTOR',['../class_m_o_t_o_r.html',1,'MOTOR'],['../class_m_o_t_o_r.html#a54ccee66940f9211d96e651ae8e1416e',1,'MOTOR::MOTOR()']]],
-  ['msg',['msg',['../class_r_o_s_s_e_r_i_a_l.html#a5112a2279bfa4e5270a1018f83442e3e',1,'ROSSERIAL']]],
-  ['msgpub',['msgPub',['../class_r_o_s_s_e_r_i_a_l.html#a4272ed5dae4ca14dc03a5a06955479d8',1,'ROSSERIAL']]]
+  ['l298n',['L298N',['../class_l298_n.html',1,'L298N'],['../class_l298_n.html#ac9582dce9fcca8291358812a7a3407ba',1,'L298N::L298N()']]],
+  ['loop',['loop',['../main_8cpp.html#afe461d27b9c48d5921c00d521181f12f',1,'main.cpp']]]
 ];
