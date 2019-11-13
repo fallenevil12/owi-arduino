@@ -68,26 +68,26 @@ bool JOINT::actuate() {
 }
 
 bool JOINT::test_step_pos() {
-    int angle = pot.getDegreeVal();
+    int temp_angle = pot.getDegreeVal();
     driver.setDirection(MOTOR::DIR::POS);
     driver.setDuration(500);
     driver.setPower(200);
     driver.output();
-
+    
     delay(500);
-    if (pot.getDegreeVal() - angle > 3.0) return true;
+    if (pot.getDegreeVal() - temp_angle > 3.0) return true;
     else return false;
 }
 
 bool JOINT::test_step_neg() {
-    int angle = pot.getDegreeVal();
+    int temp_angle = pot.getDegreeVal();
     driver.setDirection(MOTOR::DIR::NEG);
     driver.setDuration(500);
     driver.setPower(200);
     driver.output();
 
     delay(500);
-    if (pot.getDegreeVal() - angle < -3.0) return true;
+    if (pot.getDegreeVal() - temp_angle < -3.0) return true;
     else return false;
 }
 
