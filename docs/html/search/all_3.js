@@ -9,5 +9,6 @@ var searchData=
   ['dirpin1',['dirPin1',['../struct_j_o_i_n_t_1_1_c_o_n_f_i_g.html#a62eec18ea64f982f7c865076e1b49cb1',1,'JOINT::CONFIG']]],
   ['dirpin2',['dirPin2',['../struct_j_o_i_n_t_1_1_c_o_n_f_i_g.html#af0be4a3d07c33b3d20283de48ee70982',1,'JOINT::CONFIG']]],
   ['displaymenu',['displayMenu',['../_serial_helper_8hh.html#a4890d8c9edfcba0408692beedaed60a3',1,'displayMenu(const char *menu, int numOfChoice):&#160;SerialHelper.cpp'],['../_serial_helper_8cpp.html#a261171e411d88f943d12f5c26bf0657b',1,'displayMenu(const char *menu, int numOfChoices):&#160;SerialHelper.cpp']]],
-  ['duration',['duration',['../structo_loop_ctrl.html#a4d0447fb774849d7deb5e562ae3b08c8',1,'oLoopCtrl']]]
+  ['duration',['duration',['../structo_loop_ctrl.html#a4d0447fb774849d7deb5e562ae3b08c8',1,'oLoopCtrl']]],
+  ['description',['Description',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

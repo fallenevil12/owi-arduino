@@ -1,7 +1,7 @@
 var NAVTREE =
 [
   [ "owi-arduino", "index.html", [
-    [ "README", "md__r_e_a_d_m_e.html", null ],
+    [ "Description", "md__r_e_a_d_m_e.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
