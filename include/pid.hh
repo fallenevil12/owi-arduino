@@ -20,6 +20,7 @@ private:
     float prevErr{0.0};
     float accmlErr{0.0};
     float gain;
+    int count{0};
 
 }; //class PID
 

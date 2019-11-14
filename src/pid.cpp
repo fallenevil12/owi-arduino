@@ -17,7 +17,6 @@ float PID::pidCal(float _val, float _refVal) {
     refVal = _refVal;
     prevErr = err;
     err = val - refVal;
-    static int count = 0;
 
     // just return 0 gain if error stayed within accuracy for a while
     if (fabs(err) < ACCURACY) {
@@ -29,7 +28,7 @@ float PID::pidCal(float _val, float _refVal) {
     } else {
         count = 0;
     }
-
+    Serial.println(err);
     // add i term to reduce small error
     if (fabs(err) < 2*ACCURACY) {
         if (fabs(ki*accmlErr) < 0.5) accmlErr = accmlErr + err; //prevent windup saturation

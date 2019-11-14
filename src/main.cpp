@@ -34,9 +34,9 @@ void setup() {
     sleep_enable();
     Serial.begin(9600);
     rosserial.init(115200);
-    xTaskCreate(&task_ROS, "ROS", 512, NULL, 0, NULL);
+    xTaskCreate(&task_ROS, "ROS", 512, NULL, 1, NULL);
     xTaskCreate(&task_Serial, "MENU", 512, NULL, 0, NULL);
-    xTaskCreate(&task_actuate, "ACTUATE", 512, NULL, 1, NULL);
+    xTaskCreate(&task_actuate, "ACTUATE", 512, NULL, 2, NULL);
 }
 
 
@@ -44,9 +44,8 @@ void setup() {
 void cmdCallback(const owi::position_cmd& cmd) {
     if (!ROSctrl) return;
 
-    //Serial.println("Received a command");
     for (int i = 0; i < 5; i++) {
-        //Serial.println(cmd.position[i]);
+        // Serial.println(cmd.position[i]);
         joint[i].setTarget(cmd.position[i]);
     }
 }

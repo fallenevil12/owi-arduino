@@ -5,7 +5,6 @@
 #define ANALOG_BITS 10
 #define ANALOG_RANGE 5.0
 #define VOLT2DEG_SCALE 50.0
-#define ACCURACY 1.0
 #define MAXPWM 255
 
 JOINT::JOINT(CONFIG config):
@@ -23,10 +22,9 @@ void JOINT::setTarget(float targetAngle) {
 }
 
 float JOINT::getAngle(bool fresh=true) {
-    if (fresh == true) {
-        angle = (pot.getDegreeVal() - offset)/ratio;
-    }
+    if (!fresh) return angle; 
 
+    angle = (pot.getDegreeVal() - offset)/ratio;
     if (angle <= safemin || angle >= safemax) {
         halt();
         char buffer[100];
