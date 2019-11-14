@@ -20,7 +20,7 @@ void task_actuate(void *pvParams);
 
 ///////////////////// Globals ///////////////////
 ROSSERIAL rosserial(&cmdCallback);
-volatile bool ROSctrl = false; //TODO: use semaphore instead
+volatile bool ROSctrl = false; //TODO: maybe use semaphore instead
 //TODO: need to implement thread safe methods
 JOINT joint[5] = {JOINT(joint0conf),
                   JOINT(joint1conf),
@@ -54,12 +54,15 @@ void cmdCallback(const owi::position_cmd& cmd) {
 void task_ROS(void *pvParams) {
     TickType_t xLastWakeTime = xTaskGetTickCount();
     while(true) {
-        rosserial.putMsg("Hello");
-        float angle[] = {joint[0].getAngle(),
-                         joint[1].getAngle(),
-                         joint[2].getAngle(),
-                         joint[3].getAngle(),
-                         joint[4].getAngle()};
+        // Fetch new angle data when control is not yet handed over to ROS
+        // otherwise PID loop will take care of refreshing the angle data
+        bool fresh = !ROSctrl;
+        float angle[] = {joint[0].getAngle(fresh),
+                         joint[1].getAngle(fresh),
+                         joint[2].getAngle(fresh),
+                         joint[3].getAngle(fresh),
+                         joint[4].getAngle(fresh)};
+
         rosserial.putState(angle, 5);
         rosserial.update();
         vTaskDelayUntil(&xLastWakeTime, 10);

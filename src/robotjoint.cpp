@@ -22,8 +22,10 @@ void JOINT::setTarget(float targetAngle) {
     target = targetAngle;
 }
 
-float JOINT::getAngle() {
-    angle = (pot.getDegreeVal() - offset)/ratio;
+float JOINT::getAngle(bool fresh=true) {
+    if (fresh == true) {
+        angle = (pot.getDegreeVal() - offset)/ratio;
+    }
 
     if (angle <= safemin || angle >= safemax) {
         halt();

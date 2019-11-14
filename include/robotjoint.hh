@@ -53,8 +53,10 @@ public:
     /** 
      * get joint angle value in degree, according to D-H convention
      * also handle safety check
+     * @param fresh true will fetch a new analog read and return fresh data, false would return existing data
+     * @return angle in degree
      */
-    float getAngle();
+    float getAngle(bool fresh=true);
 
     /**
      * safety stop
