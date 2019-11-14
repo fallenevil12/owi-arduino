@@ -10,6 +10,9 @@ This repo is the Arduino side of the project. The ROS side can be checked out at
 
 https://github.com/ngpbach/owi-ros
 
+See it in action:
+https://youtu.be/lFCY_yz-M0M
+
 Status
 ============
 
