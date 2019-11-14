@@ -13,7 +13,7 @@ https://github.com/ngpbach/owi-ros
 Status
 ============
 
-The code is mostly functional and stable. More testing routine might be added to aid with the integration of newly built robot. Once all Joint configs (input output pins, offset, limit, pid...) are set right, passing control to ROS is pretty solid.
+The code is mostly functional and stable. More testing routine might be added to aid with the integration of newly built robot. Once all Joint configs (input output pins, offset, limit, pid...) are set right, passing control to ROS is pretty solid. Not yet implemented are concurency protection for data in RTOS... but at worst, a few instances of corrupted data now and then are just noise and has no big consequence for this cheap project.
 
 
 Build
@@ -45,7 +45,7 @@ For new robot built, use the joint configs in include/jointconfig.hh to tune eac
 
 - (Correct offset value) = (Reported angle) - (Real angle) + (Curent offset value)
 
-- The pots should have their own 5V regulator.
+- I used 6.5V for the motor driver. Since all motors can run at once, current used can be >2A. The pots should have their own 5V regulator.
 
 - PID output percentage of max PWM. For ex. kp=0.1, setpoint-currentpoint = 10deg => effort = 0.1*10 = 100%. Best to keep kp < 0.1 to avoid saturation.
 
