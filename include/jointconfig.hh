@@ -6,6 +6,7 @@
 
 /** configuration for joint 0 */
 JOINT::CONFIG joint0conf {
+    .id = 0,
     .enPin = 2,
     .dirPin1 = 25,
     .dirPin2 = 23,
@@ -19,6 +20,7 @@ JOINT::CONFIG joint0conf {
 
 /** configuration for joint 1 */
 JOINT::CONFIG joint1conf {
+    .id = 1,
     .enPin = 3,
     .dirPin1 = 29,
     .dirPin2 = 27,
@@ -32,6 +34,7 @@ JOINT::CONFIG joint1conf {
 
 /** configuration for joint 2 */
 JOINT::CONFIG joint2conf {
+    .id = 2,
     .enPin = 4,
     .dirPin1 = 33,
     .dirPin2 = 31,
@@ -45,6 +48,7 @@ JOINT::CONFIG joint2conf {
 
 /** configuration for joint 3 */
 JOINT::CONFIG joint3conf {
+    .id = 3,
     .enPin = 5,
     .dirPin1 = 35,
     .dirPin2 = 37,
@@ -58,6 +62,7 @@ JOINT::CONFIG joint3conf {
 
 /** configuration for joint 4 */
 JOINT::CONFIG joint4conf {
+    .id = 4,
     .enPin = 6,
     .dirPin1 = 39,
     .dirPin2 = 41,

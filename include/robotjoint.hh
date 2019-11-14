@@ -10,9 +10,13 @@
 class JOINT {
 
 public:
+    /** kill switch */
+    static bool kill;
 
     /** configuration parametters for a joint */
     struct CONFIG {
+        /** joint id */
+        int id;
         /** pwm Pin */
         uint8_t enPin;
         /** dir pin 1 */
@@ -54,9 +58,10 @@ public:
      * get joint angle value in degree, according to D-H convention
      * also handle safety check
      * @param fresh true will fetch a new analog read and return fresh data, false would return existing data
+     * @param limit false will bypass limit safety check
      * @return angle in degree
      */
-    float getAngle(bool fresh=true);
+    float getAngle(bool fresh=true, bool limit=true);
 
     /**
      * safety stop
@@ -92,6 +97,8 @@ public:
 
 private:
 
+    /** joint id */
+    const int id;
     /** motor driver */
     L298N driver;
     /** potentiometer driver */
@@ -103,20 +110,20 @@ private:
      * use D-H convention to determine 0 deg joint angle, then offset
      * equal sensor angle reading at that position.
     */
-    float offset;
+    const float offset;
     /** 
      * joint_angle = sensor_angle/ratio 
      * all joints are 1:1 except for joint 3
     */
-    float ratio;
+    const float ratio;
     /** operating angle lower bound */
-    float safemin;
+    const float safemin;
     /** operating angle upper bound */
-    float safemax;
+    const float safemax;
     /** corresponding link angle */
-    float angle;
+    volatile float angle;
     /** target angle */
-    float target;
+    volatile float target;
 
 
 }; //class JOINT

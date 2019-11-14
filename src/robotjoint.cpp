@@ -6,8 +6,12 @@
 #define ANALOG_RANGE 5.0
 #define VOLT2DEG_SCALE 50.0
 #define MAXPWM 255
+#define MARGIN 5
+
+bool JOINT::kill = false;
 
 JOINT::JOINT(CONFIG config):
+    id(config.id),
     driver(config.enPin, config.dirPin1, config.dirPin2), 
     pot(config.potPin, ANALOG_BITS, ANALOG_RANGE, VOLT2DEG_SCALE),
     pid(config.pid),
@@ -21,14 +25,18 @@ void JOINT::setTarget(float targetAngle) {
     target = targetAngle;
 }
 
-float JOINT::getAngle(bool fresh=true) {
+float JOINT::getAngle(bool fresh, bool limit) {
     if (!fresh) return angle; 
 
     angle = (pot.getDegreeVal() - offset)/ratio;
     if (angle <= safemin || angle >= safemax) {
-        halt();
+        if (limit) {
+            halt();
+            kill = true; //TODO: implement kill switch
+            Serial.println("Kill switch activated");
+        }
         char buffer[100];
-        sprintf(buffer, "\n!!!Critical: Joint angle (%d) out of safety bound. Operation halted.\n", static_cast<int>(angle));
+        sprintf(buffer, "\n!!!Critical: Joint%d angle (%d) out of safety bound.\n", id, static_cast<int>(angle));
         Serial.println(buffer);
     }
 
@@ -40,13 +48,14 @@ void JOINT::halt() {
     driver.setPower(0);
     driver.output();
 }
+
 bool JOINT::actuate() {
     getAngle();
 
-    if (target <= safemin + 5 || target >= safemax - 5) {
+    if (target < safemin + MARGIN || target > safemax - MARGIN) {
         halt();
         char buffer[100];
-        sprintf(buffer, "\n!!!Warning: Target %d out of safety bound. Halt movement!\n", static_cast<int>(target));
+        sprintf(buffer, "\n!!!Warning: Joint%d target %d out of safety bound. Joint movement halted!\n", id, static_cast<int>(target));
         Serial.println(buffer);
         return true;
     }
@@ -98,7 +107,7 @@ void JOINT::pid_test() {
     do {
         Serial.println(buffer);
         target = getInt();
-    } while (target < safemin || target > safemax);
+    } while (target < safemin + MARGIN || target > safemax - MARGIN);
 
     while (!actuate()) {
         Serial.println(angle);
