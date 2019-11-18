@@ -20,7 +20,7 @@ void task_actuate(void *pvParams);
 
 ///////////////////// Globals ///////////////////
 ROSSERIAL rosserial(&cmdCallback);
-volatile bool ROSctrl = false; //TODO: maybe use semaphore instead
+volatile bool ROSctrl = true; //TODO: maybe use semaphore instead
 //TODO: need to implement thread safe methods
 JOINT joint[5] = {JOINT(joint0conf),
                   JOINT(joint1conf),
@@ -35,7 +35,7 @@ void setup() {
     Serial.begin(9600);
     rosserial.init(115200);
     xTaskCreate(&task_ROS, "ROS", 512, NULL, 1, NULL);
-    xTaskCreate(&task_Serial, "MENU", 512, NULL, 0, NULL);
+    // xTaskCreate(&task_Serial, "MENU", 512, NULL, 0, NULL);
     xTaskCreate(&task_actuate, "ACTUATE", 512, NULL, 2, NULL);
 }
 
