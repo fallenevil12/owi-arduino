@@ -15,7 +15,7 @@ JOINT::CONFIG joint0conf {
     .ratio = 1.0,
     .degMin = -90.0,
     .degMax = 90.0,
-    .pid = PID(0.08, 0.0002, 0.2)
+    .pid = PID(0.08, 0.0003, 0.2)
 };
 
 /** configuration for joint 1 */
@@ -29,7 +29,7 @@ JOINT::CONFIG joint1conf {
     .ratio = 1.0,
     .degMin = 20.0,
     .degMax = 160,
-    .pid = PID(0.08, 0.0002, 0.2)
+    .pid = PID(0.08, 0.003, 0.2)
 };
 
 /** configuration for joint 2 */
@@ -43,7 +43,7 @@ JOINT::CONFIG joint2conf {
     .ratio = 1.0,
     .degMin = -120.0,
     .degMax = 120.0,
-    .pid = PID(0.08, 0.0002, 0.2)
+    .pid = PID(0.08, 0.003, 0.2)
 };
 
 /** configuration for joint 3 */

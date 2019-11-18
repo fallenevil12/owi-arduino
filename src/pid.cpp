@@ -21,8 +21,8 @@ float PID::pidCal(float _val, float _refVal) {
     // just return 0 gain if error stayed within accuracy for a while
     if (fabs(err) < ACCURACY) {
         count++;
-        if (count > 100) {
-            count = 100;
+        if (count > 10) {
+            count = 10;
             return 0.0;
         }
     } else {
